@@ -13,6 +13,7 @@
 		454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */; };
 		454C301C23470E8C00EBC4DE /* BoiledPotatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C301B23470E8C00EBC4DE /* BoiledPotatoTests.swift */; };
 		454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */; };
+		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoiledPotatoUITests.swift; sourceTree = "<group>"; };
 		454C302823470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		454C2FFA23470E8200EBC4DE = {
 			isa = PBXGroup;
 			children = (
+				45E4EB8A2349241700EE07FF /* .gitignore */,
 				454C300523470E8300EBC4DE /* BoiledPotato */,
 				454C301A23470E8C00EBC4DE /* BoiledPotatoTests */,
 				454C302523470E8C00EBC4DE /* BoiledPotatoUITests */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */,
+				45E4EB8B2349241700EE07FF /* .gitignore in Resources */,
 				454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
