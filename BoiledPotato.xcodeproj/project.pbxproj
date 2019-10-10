@@ -13,7 +13,7 @@
 		454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */; };
 		454C301C23470E8C00EBC4DE /* BoiledPotatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C301B23470E8C00EBC4DE /* BoiledPotatoTests.swift */; };
 		454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */; };
-		45A9987E234D1FD5008A2CD2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */; };
+		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987F234D2B34008A2CD2 /* Dimens.swift */; };
 		45A99882234E72EE008A2CD2 /* ViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99881234E72EE008A2CD2 /* ViewLayout.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
@@ -52,7 +52,7 @@
 		454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoiledPotatoUITests.swift; sourceTree = "<group>"; };
 		454C302823470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A9987F234D2B34008A2CD2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		45A99881234E72EE008A2CD2 /* ViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayout.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 			children = (
 				45A99881234E72EE008A2CD2 /* ViewLayout.swift */,
 				45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */,
-				45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */,
+				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
 				45A9987F234D2B34008A2CD2 /* Dimens.swift */,
 			);
@@ -297,7 +297,7 @@
 				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,
-				45A9987E234D1FD5008A2CD2 /* UIColorExtension.swift in Sources */,
+				45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

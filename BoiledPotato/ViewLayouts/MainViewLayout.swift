@@ -14,11 +14,16 @@ class MainViewLayout : ViewLayout {
         parent.backgroundColor = .white
         parent.addSubview(searchComponent)
         
-        searchComponent.addSubview(title)
-        searchComponent.addSubview(backButton)
-        searchComponent.addSubview(favoritesButton)
-        searchComponent.addSubview(searchField)
-        searchComponent.addSubview(searchButton)
+        searchComponent.addSubviews(views: [
+            title,
+            backButton,
+            favoritesButton,
+            searchField,
+            searchButton,
+            filterComponent,
+            cuisineHeading
+        ])
+        
         searchComponent.topAnchor.constraint(equalTo: parent.layoutMarginsGuide.topAnchor).isActive = true
         searchComponent.leftAnchor.constraint(equalTo: parent.leftAnchor).isActive = true
         searchComponent.rightAnchor.constraint(equalTo: parent.rightAnchor).isActive = true
@@ -50,5 +55,7 @@ class MainViewLayout : ViewLayout {
         searchButton.bottomAnchor.constraint(equalTo: searchComponent.layoutMarginsGuide.bottomAnchor).isActive = true
         searchButton.widthAnchor.constraint(equalToConstant: Dimens.button_size_main).isActive = true
         searchButton.heightAnchor.constraint(equalTo: searchButton.widthAnchor).isActive = true
+        
+        
     }
 }

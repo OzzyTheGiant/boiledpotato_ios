@@ -1,5 +1,11 @@
 import UIKit
 
+extension UIView {
+    func addSubviews(views: [UIView]) {
+        for view in views { addSubview(view) }
+    }
+}
+
 extension UIColor {
     class var neutral: UIColor { fetchColor(name: "COL_Neutral", hex: 0x000000) }
     class var primary: UIColor { fetchColor(name: "COL_Primary", hex: 0xFFE55F)}
