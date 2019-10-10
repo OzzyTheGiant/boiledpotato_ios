@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300623470E8300EBC4DE /* AppDelegate.swift */; };
-		454C300923470E8300EBC4DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300823470E8300EBC4DE /* ViewController.swift */; };
+		454C300923470E8300EBC4DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300823470E8300EBC4DE /* MainViewController.swift */; };
 		454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454C300D23470E8B00EBC4DE /* Assets.xcassets */; };
 		454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */; };
 		454C301C23470E8C00EBC4DE /* BoiledPotatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C301B23470E8C00EBC4DE /* BoiledPotatoTests.swift */; };
 		454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */; };
+		45A9987E234D1FD5008A2CD2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */; };
+		45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987F234D2B34008A2CD2 /* Dimens.swift */; };
+		45A99882234E72EE008A2CD2 /* ViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99881234E72EE008A2CD2 /* ViewLayout.swift */; };
+		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
 		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
+		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
+		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		454C300323470E8300EBC4DE /* BoiledPotato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoiledPotato.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		454C300323470E8300EBC4DE /* Boiled Potato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boiled Potato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C300623470E8300EBC4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		454C300823470E8300EBC4DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		454C300823470E8300EBC4DE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		454C300D23470E8B00EBC4DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		454C301023470E8B00EBC4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		454C301223470E8B00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +52,13 @@
 		454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoiledPotatoUITests.swift; sourceTree = "<group>"; };
 		454C302823470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		45A9987F234D2B34008A2CD2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
+		45A99881234E72EE008A2CD2 /* ViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayout.swift; sourceTree = "<group>"; };
+		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
 		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
+		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +100,7 @@
 		454C300423470E8300EBC4DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				454C300323470E8300EBC4DE /* BoiledPotato.app */,
+				454C300323470E8300EBC4DE /* Boiled Potato.app */,
 				454C301723470E8B00EBC4DE /* BoiledPotatoTests.xctest */,
 				454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */,
 			);
@@ -98,11 +110,13 @@
 		454C300523470E8300EBC4DE /* BoiledPotato */ = {
 			isa = PBXGroup;
 			children = (
+				45E4EB90234938D300EE07FF /* ViewControllers */,
+				45E4EB8D2349384700EE07FF /* ViewLayouts */,
 				454C300623470E8300EBC4DE /* AppDelegate.swift */,
-				454C300823470E8300EBC4DE /* ViewController.swift */,
 				454C300D23470E8B00EBC4DE /* Assets.xcassets */,
 				454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */,
 				454C301223470E8B00EBC4DE /* Info.plist */,
+				45FB0E19234A9BA30052B8B5 /* Localizable.strings */,
 			);
 			path = BoiledPotato;
 			sourceTree = "<group>";
@@ -125,6 +139,26 @@
 			path = BoiledPotatoUITests;
 			sourceTree = "<group>";
 		};
+		45E4EB8D2349384700EE07FF /* ViewLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				45A99881234E72EE008A2CD2 /* ViewLayout.swift */,
+				45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */,
+				45A9987D234D1FD5008A2CD2 /* UIColorExtension.swift */,
+				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
+				45A9987F234D2B34008A2CD2 /* Dimens.swift */,
+			);
+			path = ViewLayouts;
+			sourceTree = "<group>";
+		};
+		45E4EB90234938D300EE07FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				454C300823470E8300EBC4DE /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,7 +176,7 @@
 			);
 			name = BoiledPotato;
 			productName = BoiledPotato;
-			productReference = 454C300323470E8300EBC4DE /* BoiledPotato.app */;
+			productReference = 454C300323470E8300EBC4DE /* Boiled Potato.app */;
 			productType = "com.apple.product-type.application";
 		};
 		454C301623470E8B00EBC4DE /* BoiledPotatoTests */ = {
@@ -230,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */,
+				45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */,
 				45E4EB8B2349241700EE07FF /* .gitignore in Resources */,
 				454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */,
 			);
@@ -256,8 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454C300923470E8300EBC4DE /* ViewController.swift in Sources */,
+				45A99882234E72EE008A2CD2 /* ViewLayout.swift in Sources */,
+				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
+				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
+				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
+				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,
+				45A9987E234D1FD5008A2CD2 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGX4Q23YH7;
 				INFOPLIST_FILE = BoiledPotato/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -432,7 +473,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dreamcraft.BoiledPotato;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Boiled Potato";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGX4Q23YH7;
 				INFOPLIST_FILE = BoiledPotato/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dreamcraft.BoiledPotato;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Boiled Potato";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
