@@ -35,3 +35,25 @@ extension UIColor {
        )
     }
 }
+
+extension UIButton {
+    func alignImageAndTitleVertically(
+        padding: CGFloat = Dimens.padding_button_cuisine,
+        totalSize: CGFloat = Dimens.button_size_cuisine
+    ) {
+        let titleSize = self.titleLabel!.frame.size
+        
+        self.titleEdgeInsets = UIEdgeInsets(
+            top: totalSize / 2,
+            left: -(totalSize - titleSize.width) / 3,
+            bottom: 0,
+            right: 0
+        )
+        
+        self.imageView!.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView!.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.imageView!.topAnchor.constraint(equalTo: self.topAnchor, constant: Dimens.padding_button_cuisine).isActive = true
+        self.imageView!.widthAnchor.constraint(equalToConstant: Dimens.icon_size_cuisine).isActive = true
+        self.imageView!.heightAnchor.constraint(equalToConstant: Dimens.icon_size_cuisine).isActive = true
+    }
+}
