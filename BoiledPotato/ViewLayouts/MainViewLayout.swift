@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 class MainViewLayout : ViewLayout {
+    
     // searchComponent and its subviews
     lazy var searchComponent = createComponent(withColor: .neutral)
     lazy var backButton = createIconButton(withImageAsset: "ICO_Back_Arrow")
@@ -16,7 +17,7 @@ class MainViewLayout : ViewLayout {
     lazy var cuisineParagraph = createText(key: "CUISINE_PARAGRAPH", alignment: NSTextAlignment.center)
     
     // Cuisine buttons
-    private var cuisineButtons : [UIButton] = [
+    var cuisineButtons : [UIButton] = [
         createCuisineButton("AMERICAN", iconKey: "ICO_Burger"),
         createCuisineButton("MEXICAN", iconKey: "ICO_Taco"),
         createCuisineButton("CHINESE", iconKey: "ICO_Rice"),
@@ -94,7 +95,7 @@ class MainViewLayout : ViewLayout {
         cuisineParagraph.rightAnchor.constraint(equalTo: filterComponent.layoutMarginsGuide.rightAnchor).isActive = true
         
         for (index, button) in cuisineButtons.enumerated() {
-            arrangeCuisineButton(button, index: index, containerSize: parent.frame.size)
+            arrangeCuisineButton(button, index: index, parent: parent)
         }
     }
     
@@ -117,38 +118,23 @@ class MainViewLayout : ViewLayout {
         return cuisineButton
     }
     
-    private func arrangeCuisineButton(_ button: UIButton, index: Int, containerSize: CGSize) {
-        let buttonWidth = (containerSize.width - (Dimens.padding_viewport * 4)) / 3
-        let topAnchor: NSLayoutYAxisAnchor
-        var leftAnchor: NSLayoutXAxisAnchor? = nil
-        var rightAnchor: NSLayoutXAxisAnchor? = nil
-        var constant = CGFloat(0)
-        
-        switch((index + 1) % 3) {
-            case 1:
-                // if button is on left side, attach to left side of parent component
-                leftAnchor = filterComponent.layoutMarginsGuide.leftAnchor
-                break
-            case 2:
-                // if button is in the middle, attach to the other two buttons on its row
-                leftAnchor = cuisineButtons[index - 1].rightAnchor
-                rightAnchor = cuisineButtons[index + 1].leftAnchor
-                constant = Dimens.padding_viewport
-                break
-            default:
-                // if button is on right side, attach to right side of parent component
-                rightAnchor = filterComponent.layoutMarginsGuide.rightAnchor
-                break
-        }
+    /** Lay out cuisine buttons as part of a 3 x 3 grid */
+    private func arrangeCuisineButton(_ button: UIButton, index: Int, parent: UIView) {
+        let containerSize = parent.frame.size
+        // root view width - outer padding and columng gaps / number of columns / root view width to get percentage as decimal
+        let multiplier = (containerSize.width - (Dimens.padding_viewport * 4)) / 3 / containerSize.width
+        let topAnchor = index < 3 ? cuisineParagraph.bottomAnchor : cuisineButtons[index - 3].bottomAnchor
         
         // anchor to cuisine paragraph if it's one of first three buttons, otherwise use button above
-        topAnchor = index < 3 ? cuisineParagraph.bottomAnchor : cuisineButtons[index - 3].bottomAnchor
-        
         button.topAnchor.constraint(equalTo: topAnchor, constant: Dimens.padding_viewport).isActive = true
-        button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        button.widthAnchor.constraint(equalTo: parent.widthAnchor, multiplier: multiplier).isActive = true
         
-        if leftAnchor != nil { button.leftAnchor.constraint(equalTo: leftAnchor!, constant: constant).isActive = true }
-        if rightAnchor != nil { button.rightAnchor.constraint(equalTo: rightAnchor!, constant: -constant).isActive = true }
+        switch((index + 1) % 3) {
+            // attach to left, center, or right of parent component based on button order
+            case 1: button.leftAnchor.constraint(equalTo: filterComponent.layoutMarginsGuide.leftAnchor).isActive = true; break
+            case 2: button.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true; break
+            default: button.rightAnchor.constraint(equalTo: filterComponent.layoutMarginsGuide.rightAnchor).isActive = true; break
+        }
         
         button.alignImageAndTitleVertically()
     }

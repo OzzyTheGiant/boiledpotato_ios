@@ -15,7 +15,5 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         layout = MainViewLayout(rootView: view)
     }
-
-
 }
 
