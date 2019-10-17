@@ -1,10 +1,5 @@
 import UIKit
-
-extension UIView {
-    func addSubviews(_ views: [UIView]) {
-        for view in views { addSubview(view) }
-    }
-}
+import Stevia
 
 extension UIColor {
     class var neutral: UIColor { fetchColor(name: "COL_Neutral", hex: 0x000000) }
@@ -39,21 +34,22 @@ extension UIColor {
 extension UIButton {
     func alignImageAndTitleVertically(
         padding: CGFloat = Dimens.padding_button_cuisine,
+        iconSize: CGFloat = Dimens.icon_size_cuisine,
         totalSize: CGFloat = Dimens.button_size_cuisine
     ) {
         let titleSize = self.titleLabel!.frame.size
         
+        // apparently, constraints do not work on UIButton titleLabels, so edge insets are needed
         self.titleEdgeInsets = UIEdgeInsets(
-            top: totalSize / 2,
+            top: iconSize + padding,
             left: -(totalSize - titleSize.width) / 3,
             bottom: 0,
             right: 0
         )
         
         self.imageView!.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView!.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        self.imageView!.topAnchor.constraint(equalTo: self.topAnchor, constant: Dimens.padding_button_cuisine).isActive = true
-        self.imageView!.widthAnchor.constraint(equalToConstant: Dimens.icon_size_cuisine).isActive = true
-        self.imageView!.heightAnchor.constraint(equalToConstant: Dimens.icon_size_cuisine).isActive = true
+        self.imageView!.CenterX == self.CenterX
+        self.imageView!.Top == self.Top + padding
+        self.imageView!.size(iconSize)
     }
 }

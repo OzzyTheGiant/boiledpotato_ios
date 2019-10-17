@@ -5,8 +5,6 @@ class ViewLayout {
         let view = UIView()
         let p = Dimens.padding_viewport
         
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
         if #available(iOS 11.0, *) {
             view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: p, leading: p, bottom: p, trailing: p)
         } else {
@@ -28,6 +26,7 @@ class ViewLayout {
         button.setBackgroundImage(UIImage(named: assetName), for: UIControl.State.normal)
         button.tintColor = .primary
         button.layer.cornerRadius = Dimens.border_radius_main
+        button.size(Dimens.button_size_main)
         return button
     }
     
