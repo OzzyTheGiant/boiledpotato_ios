@@ -17,9 +17,9 @@
 		456CB9B023564F7800BD487F /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 456CB9AF23564F7800BD487F /* Cartfile.resolved */; };
 		456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; };
 		456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		456CB9B82358F08700BD487F /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CB9B72358F08700BD487F /* Styles.swift */; };
 		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987F234D2B34008A2CD2 /* Dimens.swift */; };
-		45A99882234E72EE008A2CD2 /* ViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99881234E72EE008A2CD2 /* ViewLayout.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
 		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
 		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
@@ -73,9 +73,9 @@
 		456CB9AD23564C0600BD487F /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		456CB9AF23564F7800BD487F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		456CB9B223565A5000BD487F /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
+		456CB9B72358F08700BD487F /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A9987F234D2B34008A2CD2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
-		45A99881234E72EE008A2CD2 /* ViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLayout.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
 		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
@@ -175,10 +175,10 @@
 		45E4EB8D2349384700EE07FF /* ViewLayouts */ = {
 			isa = PBXGroup;
 			children = (
-				45A99881234E72EE008A2CD2 /* ViewLayout.swift */,
 				45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */,
 				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
+				456CB9B72358F08700BD487F /* Styles.swift */,
 				45A9987F234D2B34008A2CD2 /* Dimens.swift */,
 			);
 			path = ViewLayouts;
@@ -349,9 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A99882234E72EE008A2CD2 /* ViewLayout.swift in Sources */,
 				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
 				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
+				456CB9B82358F08700BD487F /* Styles.swift in Sources */,
 				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,

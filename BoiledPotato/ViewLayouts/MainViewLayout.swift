@@ -2,36 +2,34 @@ import Foundation
 import UIKit
 import Stevia
 
-class MainViewLayout : ViewLayout {
-    
+class MainViewLayout {
     // searchComponent and its subviews
-    lazy var searchComponent = createComponent(withColor: .neutral)
-    lazy var backButton = createIconButton(withImageAsset: "ICO_Back_Arrow")
-    lazy var title = createViewLayoutTitle(key: "MAIN_VIEW_TITLE")
-    lazy var favoritesButton = createIconButton(withImageAsset: "ICO_Star")
-    lazy var searchField = createField(placeholder: "SEARCH_FIELD_PLACEHOLDER")
-    lazy var searchButton = createIconButton(withImageAsset: "ICO_Search", color: .primary)
+    let searchComponent   = UIView()            .style(component_background_neutral)
+    let backButton        = UIButton()          .style(button_icon_back)
+    let title             = UILabel()           .style(text_heading_vl_main)
+    let favoritesButton   = UIButton()          .style(button_icon_star)
+    let searchField       = UIPaddedTextField() .style(field_search)
+    let searchButton      = UIButton()          .style(button_icon_search)
     
     // filterComponent and its subviews
-    lazy var filterComponent = createComponent()
-    lazy var cuisineHeading = createTextHeading(key: "CUISINE_HEADING")
-    lazy var cuisineParagraph = createText(key: "CUISINE_PARAGRAPH", alignment: NSTextAlignment.center)
+    let filterComponent   = UIView()            .style(component)
+    let cuisineHeading    = UILabel()           .style(text_heading_cuisine)
+    let cuisineParagraph  = UILabel()           .style(text_paragraph_cuisine)
     
     // Cuisine buttons
-    var cuisineButtons : [UIButton] = [
-        createCuisineButton("AMERICAN", iconKey: "ICO_Burger"),
-        createCuisineButton("MEXICAN", iconKey: "ICO_Taco"),
-        createCuisineButton("CHINESE", iconKey: "ICO_Rice"),
-        createCuisineButton("JAPANESE", iconKey: "ICO_Sushi"),
-        createCuisineButton("INDIAN", iconKey: "ICO_Curry"),
-        createCuisineButton("FRENCH", iconKey: "ICO_Croissant"),
-        createCuisineButton("ITALIAN", iconKey: "ICO_Pizza"),
-        createCuisineButton("SPANISH", iconKey: "ICO_Paella"),
-        createCuisineButton("BRITISH", iconKey: "ICO_Fish_And_Chips"),
-    ]
+    let cuisineButtons : [UIButton] = [
+        UIButton(textKey: "AMERICAN", iconKey: "ICO_Burger"),
+        UIButton(textKey: "MEXICAN", iconKey: "ICO_Taco"),
+        UIButton(textKey: "CHINESE", iconKey: "ICO_Rice"),
+        UIButton(textKey: "JAPANESE", iconKey: "ICO_Sushi"),
+        UIButton(textKey: "INDIAN", iconKey: "ICO_Curry"),
+        UIButton(textKey: "FRENCH", iconKey: "ICO_Croissant"),
+        UIButton(textKey: "ITALIAN", iconKey: "ICO_Pizza"),
+        UIButton(textKey: "SPANISH", iconKey: "ICO_Paella"),
+        UIButton(textKey: "BRITISH", iconKey: "ICO_Fish_And_Chips"),
     
+    ]
     init(rootView parent: UIView) {
-        super.init()
         parent.backgroundColor = .white
         
         // create UIView hierarchy with Stevia
@@ -91,27 +89,10 @@ class MainViewLayout : ViewLayout {
         
         for (index, button) in cuisineButtons.enumerated() {
             arrangeCuisineButton(button, index: index, rootView: parent)
+            button.style(button_cuisine)
         }
     }
-    
-    private class func createCuisineButton(_ textKey: String, iconKey: String) -> UIButton {
-        let cuisineButton = UIButton()
-        let image = UIImage(named: iconKey)
-        
-        cuisineButton.backgroundColor = .neutral
-        cuisineButton.setImage(image, for: UIControl.State.normal)
-        cuisineButton.imageView?.tintColor = .primary
-        
-        cuisineButton.setTitle(NSLocalizedString(textKey, comment: ""), for: UIControl.State.normal)
-        cuisineButton.setTitleColor(.primary, for: UIControl.State.normal)
-        cuisineButton.titleLabel?.font = UIFont.systemFont(ofSize: Dimens.font_size_cuisine_button)
-        
-//        cuisineButton.translatesAutoresizingMaskIntoConstraints = false
-        cuisineButton.layer.cornerRadius = Dimens.border_radius_cuisine
-        cuisineButton.height(Dimens.button_size_cuisine)
-        
-        return cuisineButton
-    }
+
     
     /** Lay out cuisine buttons as part of a 3 x 3 grid */
     private func arrangeCuisineButton(_ button: UIButton, index: Int, rootView: UIView) {

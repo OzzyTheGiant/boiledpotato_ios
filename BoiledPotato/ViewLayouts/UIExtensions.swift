@@ -32,6 +32,12 @@ extension UIColor {
 }
 
 extension UIButton {
+    convenience init(textKey: String, iconKey: String) {
+        self.init()
+        self.setTitle(NSLocalizedString(textKey, comment: ""), for: .normal)
+        self.setImage(UIImage(named: iconKey), for: .normal)
+    }
+    
     func alignImageAndTitleVertically(
         padding: CGFloat = Dimens.padding_button_cuisine,
         iconSize: CGFloat = Dimens.icon_size_cuisine,
