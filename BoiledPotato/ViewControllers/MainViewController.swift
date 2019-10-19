@@ -1,19 +1,31 @@
-//
-//  ViewController.swift
-//  BoiledPotato
-//
-//  Created by Oziel Perez on 10/4/19.
-//  Copyright © 2019 DreamCraft. All rights reserved.
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
-    private var layout : MainViewLayout?
+    private let layout = MainViewLayout()
+    private var selectedCuisineButton : UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout = MainViewLayout(rootView: view)
+        layout.arrangeSubviews(for: view)
+        
+        // add click handlers for cuisine buttons
+        for button in layout.cuisineButtons {
+            button.addTarget(self, action: #selector(selectCuisineButton), for: .touchUpInside)
+        }
+    }
+    
+    @objc func selectCuisineButton(_ button: UIButton) {
+        if button == selectedCuisineButton {
+            layout.toggleCuisineButton(button, check: false);
+            selectedCuisineButton = nil; return
+        }
+        
+        if selectedCuisineButton != nil {
+            layout.toggleCuisineButton(selectedCuisineButton!, check: false)
+        }
+        
+        layout.toggleCuisineButton(button, check: true)
+        selectedCuisineButton = button
     }
 }
 

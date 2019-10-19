@@ -27,9 +27,9 @@ class MainViewLayout {
         UIButton(textKey: "ITALIAN", iconKey: "ICO_Pizza"),
         UIButton(textKey: "SPANISH", iconKey: "ICO_Paella"),
         UIButton(textKey: "BRITISH", iconKey: "ICO_Fish_And_Chips"),
-    
     ]
-    init(rootView parent: UIView) {
+    
+    func arrangeSubviews(for parent: UIView) {
         parent.backgroundColor = .white
         
         // create UIView hierarchy with Stevia
@@ -89,7 +89,7 @@ class MainViewLayout {
         
         for (index, button) in cuisineButtons.enumerated() {
             arrangeCuisineButton(button, index: index, rootView: parent)
-            button.style(button_cuisine)
+            button.style(button_cuisine_unchecked)
         }
     }
 
@@ -113,5 +113,9 @@ class MainViewLayout {
         }
         
         button.alignImageAndTitleVertically()
+    }
+    
+    func toggleCuisineButton(_ button: UIButton, check: Bool) {
+        button.style(check ? button_cuisine_checked : button_cuisine_unchecked)
     }
 }

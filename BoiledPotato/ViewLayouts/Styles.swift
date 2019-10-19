@@ -25,14 +25,23 @@ func button_icon_primary(_ button: UIButton, iconKey assetName: String) {
 }
 
 func button_cuisine(_ button: UIButton) {
-    button.backgroundColor = .neutral
-    button.imageView?.tintColor = .primary
-    
-    button.setTitleColor(.primary, for: UIControl.State.normal)
     button.titleLabel?.font = UIFont.systemFont(ofSize: Dimens.font_size_cuisine_button)
-
     button.layer.cornerRadius = Dimens.border_radius_cuisine
     button.height(Dimens.button_size_cuisine)
+}
+
+func button_cuisine_unchecked(_ button: UIButton) {
+    button_cuisine(button)
+    button.backgroundColor = .neutral
+    button.imageView?.tintColor = .primary
+    button.setTitleColor(.primary, for: UIControl.State.normal)
+}
+
+func button_cuisine_checked(_ button: UIButton) {
+    button_cuisine(button)
+    button.backgroundColor = .primary
+    button.imageView?.tintColor = .neutral
+    button.setTitleColor(.neutral, for: UIControl.State.normal)
 }
 
 func button_icon_back(_ button: UIButton) { button_icon(button, iconKey: "ICO_Back_Arrow") }
