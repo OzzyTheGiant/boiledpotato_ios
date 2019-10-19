@@ -7,6 +7,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout.arrangeSubviews(for: view)
+        layout.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
         
         // add click handlers for cuisine buttons
         for button in layout.cuisineButtons {
@@ -14,6 +15,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    /** toggle cuisine button colors to mark as selected or deselected */
     @objc func selectCuisineButton(_ button: UIButton) {
         if button == selectedCuisineButton {
             layout.toggleCuisineButton(button, check: false);
@@ -26,6 +28,15 @@ class MainViewController: UIViewController {
         
         layout.toggleCuisineButton(button, check: true)
         selectedCuisineButton = button
+    }
+    
+    /** Dismiss keyboard app when pressing outside of search field */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @objc func suspendApp(_ sender: AnyObject) {
+        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
     }
 }
 
