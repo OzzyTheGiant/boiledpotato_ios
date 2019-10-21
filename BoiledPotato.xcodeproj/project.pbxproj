@@ -18,6 +18,8 @@
 		456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; };
 		456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		456CB9B82358F08700BD487F /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456CB9B72358F08700BD487F /* Styles.swift */; };
+		456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; };
+		456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987F234D2B34008A2CD2 /* Dimens.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
@@ -51,6 +53,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */,
+				456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +77,7 @@
 		456CB9AF23564F7800BD487F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		456CB9B223565A5000BD487F /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
 		456CB9B72358F08700BD487F /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A9987F234D2B34008A2CD2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */,
+				456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +172,7 @@
 		456CB9B123565A5000BD487F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */,
 				456CB9B223565A5000BD487F /* Stevia.framework */,
 			);
 			name = Frameworks;
@@ -333,6 +339,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Stevia.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 			);
 			outputFileListPaths = (
 			);

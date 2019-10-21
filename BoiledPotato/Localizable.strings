@@ -1,5 +1,6 @@
 "MAIN_VIEW_TITLE"="Find a Recipe";
 "SEARCH_FIELD_PLACEHOLDER"="Search by Ingredient";
+"SEARCH_FIELD_EMPTY"="Please enter an ingredient";
 "CUISINE_HEADING"="Cuisines";
 "CUISINE_PARAGRAPH"="Filter search results by cuisine type";
 "AMERICAN"="AMERICAN";

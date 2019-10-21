@@ -1,4 +1,5 @@
 import UIKit
+import ToastSwiftFramework
 
 class MainViewController: UIViewController {
     private let layout = MainViewLayout()
@@ -8,6 +9,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         layout.arrangeSubviews(for: view)
         layout.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
+        layout.searchButton.addTarget(self, action: #selector(startNextScene), for: .touchUpInside)
         
         // add click handlers for cuisine buttons
         for button in layout.cuisineButtons {
@@ -37,6 +39,17 @@ class MainViewController: UIViewController {
     
     @objc func suspendApp(_ sender: AnyObject) {
         UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+    }
+    
+    @objc func startNextScene(_ sender: AnyObject) {
+        if layout.searchField.text!.isEmpty {
+            var style = ToastStyle()
+            style.backgroundColor = .accent
+            view.makeToast(NSLocalizedString("SEARCH_FIELD_EMPTY", comment: ""), duration: 3.0, position: .bottom, style: style)
+            return
+        }
+        
+        print("not empty")
     }
 }
 
