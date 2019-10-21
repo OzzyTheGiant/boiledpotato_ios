@@ -6,6 +6,7 @@ extension UIColor {
     class var primary: UIColor { fetchColor(name: "COL_Primary", hex: 0xFFE55F)}
     class var primary_dark: UIColor { fetchColor(name: "COL_Primary_Dark", hex: 0xEEC500) }
     class var accent: UIColor { fetchColor(name: "COL_Accent", hex: 0xB35321) }
+    class var primary_background: UIColor { fetchColor(name: "COL_Primary_Background", hex: 0xFFF9C4) }
     
     private class func fetchColor(name: String, hex: Int) -> UIColor {
         if #available(iOS 11, *) {
