@@ -32,6 +32,11 @@ class MainViewController: UIViewController {
         selectedCuisineButton = button
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     /** Dismiss keyboard app when pressing outside of search field */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -42,14 +47,16 @@ class MainViewController: UIViewController {
     }
     
     @objc func startNextScene(_ sender: AnyObject) {
-        if layout.searchField.text!.isEmpty {
-            var style = ToastStyle()
-            style.backgroundColor = .accent
-            view.makeToast(NSLocalizedString("SEARCH_FIELD_EMPTY", comment: ""), duration: 3.0, position: .bottom, style: style)
-            return
+        if let keywords = layout.searchField.text, !keywords.isEmpty {
+            navigationController?.pushViewController(
+                SearchResultsViewController(keywords, cuisine: selectedCuisineButton?.currentTitle?.lowercased() ?? ""),
+                animated: true
+            )
         }
         
-        print("not empty")
+        var style = ToastStyle()
+        style.backgroundColor = .accent
+        view.makeToast(NSLocalizedString("SEARCH_FIELD_EMPTY", comment: ""), duration: 3.0, position: .bottom, style: style)
     }
 }
 

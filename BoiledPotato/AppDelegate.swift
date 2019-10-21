@@ -1,24 +1,17 @@
-//
-//  AppDelegate.swift
-//  BoiledPotato
-//
-//  Created by Oziel Perez on 10/4/19.
-//  Copyright © 2019 DreamCraft. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let navController = UINavigationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
+        navController.pushViewController(MainViewController(), animated: false)
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
-        window?.rootViewController = MainViewController()
         return true
     }
 

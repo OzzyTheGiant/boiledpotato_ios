@@ -13,6 +13,7 @@
 		454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */; };
 		454C301C23470E8C00EBC4DE /* BoiledPotatoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C301B23470E8C00EBC4DE /* BoiledPotatoTests.swift */; };
 		454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */; };
+		456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456049A5235E3E9D00316E36 /* SearchResultsViewController.swift */; };
 		456CB9AE23564C0700BD487F /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 456CB9AD23564C0600BD487F /* Cartfile */; };
 		456CB9B023564F7800BD487F /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 456CB9AF23564F7800BD487F /* Cartfile.resolved */; };
 		456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; };
@@ -73,6 +74,7 @@
 		454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoiledPotatoUITests.swift; sourceTree = "<group>"; };
 		454C302823470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		456049A5235E3E9D00316E36 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		456CB9AD23564C0600BD487F /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		456CB9AF23564F7800BD487F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		456CB9B223565A5000BD487F /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				454C300823470E8300EBC4DE /* MainViewController.swift */,
+				456049A5235E3E9D00316E36 /* SearchResultsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
+				456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */,
 				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
 				456CB9B82358F08700BD487F /* Styles.swift in Sources */,
 				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
