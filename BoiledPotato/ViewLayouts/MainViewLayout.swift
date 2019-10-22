@@ -50,9 +50,8 @@ class MainViewLayout {
         
         // search component and subview constraints
         searchComponent.Top == parent.layoutMarginsGuide.Top
-        searchComponent.Left == parent.Left
-        searchComponent.Right == parent.Right
         searchComponent.Bottom == searchButton.Bottom - Dimens.padding_viewport * 2
+        searchComponent.fillHorizontally()
           
         backButton.Top == searchComponent.layoutMarginsGuide.Top
         backButton.Left == searchComponent.layoutMarginsGuide.Left
@@ -75,9 +74,8 @@ class MainViewLayout {
         
         // filter component and subview constraints
         filterComponent.Top == searchComponent.Bottom
-        filterComponent.Left == parent.Left
-        filterComponent.Right == parent.Right
         filterComponent.Bottom == parent.Bottom
+        filterComponent.fillHorizontally()
       
         cuisineHeading.Top == filterComponent.layoutMarginsGuide.Top
         cuisineHeading.Left == filterComponent.layoutMarginsGuide.Left
