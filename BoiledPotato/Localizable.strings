@@ -1,4 +1,5 @@
 "MAIN_VIEW_TITLE"="Find a Recipe";
+"SEARCH_RESULTS_VIEW_TITLE"="Search Results";
 "SEARCH_FIELD_PLACEHOLDER"="Search by Ingredient";
 "SEARCH_FIELD_EMPTY"="Please enter an ingredient";
 "CUISINE_HEADING"="Cuisines";

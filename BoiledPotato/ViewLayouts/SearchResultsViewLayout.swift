@@ -3,13 +3,36 @@ import Stevia
 import ShimmerSwift
 
 class SearchResultsViewLayout {
+    // loading indicators
     let placeholderComponent = UIStackView().style(component_placeholders)
-    let placeholders = [ShimmeringView(), ShimmeringView(), ShimmeringView()]
+    let placeholders = [ShimmeringView(), ShimmeringView()]
+    
+    // header component
+    let headerComponent = UIView().style(component_background_neutral)
+    let backButton = UIButton().style(button_icon_back)
+    let title = UILabel().style(text_heading_vl_search)
     
     func arrangeSubviews(parent: UIView) {
-        parent.sv(placeholderComponent)
+        parent.sv(
+            headerComponent.sv(backButton, title),
+            placeholderComponent
+        )
         
-        placeholderComponent.Top == parent.layoutMarginsGuide.Top
+        // header component and subviews' constraints
+        headerComponent.Top == parent.layoutMarginsGuide.Top
+        headerComponent.Left == parent.Left
+        headerComponent.Right == parent.Right
+        headerComponent.Bottom == backButton.Bottom - Dimens.padding_viewport
+        
+        backButton.Top == headerComponent.layoutMarginsGuide.Top
+        backButton.Left == headerComponent.layoutMarginsGuide.Left
+        
+        title.Top == headerComponent.layoutMarginsGuide.Top
+        title.CenterX == headerComponent.CenterX
+        title.Bottom == backButton.Bottom
+        
+        // placeholder component constraints
+        placeholderComponent.Top == headerComponent.Bottom + Dimens.padding_viewport
         placeholderComponent.Left == parent.Left
         placeholderComponent.Right == parent.Right
         placeholderComponent.Bottom == parent.Bottom - Dimens.padding_viewport

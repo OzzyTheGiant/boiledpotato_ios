@@ -74,6 +74,7 @@ func paragraph(_ label: UILabel, key: String, alignment : NSTextAlignment = .lef
 }
 
 func text_heading_vl_main(_ label: UILabel) { text_heading_view_layout(label, key: "MAIN_VIEW_TITLE") }
+func text_heading_vl_search(_ label: UILabel) { text_heading_view_layout(label, key: "SEARCH_RESULTS_VIEW_TITLE") }
 func text_heading_cuisine(_ label: UILabel) { text_heading(label, key: "CUISINE_HEADING") }
 func text_paragraph_cuisine(_ label: UILabel) { paragraph(label, key: "CUISINE_PARAGRAPH", alignment: .center) }
 
