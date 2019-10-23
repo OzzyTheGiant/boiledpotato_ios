@@ -24,6 +24,9 @@
 		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987F234D2B34008A2CD2 /* Dimens.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
+		45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; };
+		45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */; };
 		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
 		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
 		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
@@ -54,6 +57,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */,
+				45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */,
 				456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -83,6 +87,8 @@
 		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A9987F234D2B34008A2CD2 /* Dimens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
+		45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShimmerSwift.framework; path = Carthage/Build/iOS/ShimmerSwift.framework; sourceTree = "<group>"; };
+		45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewLayout.swift; sourceTree = "<group>"; };
 		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
 		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */,
+				45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */,
 				456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +181,7 @@
 		456CB9B123565A5000BD487F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */,
 				456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */,
 				456CB9B223565A5000BD487F /* Stevia.framework */,
 			);
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */,
+				45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */,
 				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
 				456CB9B72358F08700BD487F /* Styles.swift */,
@@ -343,6 +352,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Stevia.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ShimmerSwift.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -362,6 +372,7 @@
 				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
 				456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */,
 				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
+				45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */,
 				456CB9B82358F08700BD487F /* Styles.swift in Sources */,
 				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,

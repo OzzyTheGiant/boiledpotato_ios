@@ -11,6 +11,14 @@ func component_background_neutral(_ view: UIView) {
     view.backgroundColor = .neutral
 }
 
+func component_placeholders(_ placeholderComponent: UIStackView) {
+    component(placeholderComponent)
+    placeholderComponent.axis = .vertical
+    placeholderComponent.distribution = .fillEqually
+    placeholderComponent.alignment = .center
+    placeholderComponent.spacing = Dimens.padding_viewport
+}
+
 func button_icon(_ button: UIButton, iconKey assetName: String) {
     button.setBackgroundImage(UIImage(named: assetName), for: UIControl.State.normal)
     button.tintColor = .primary
@@ -77,3 +85,5 @@ func field(_ field: UITextField, placeholder: String) {
 }
 
 func field_search(_ textField: UITextField) { field(textField, placeholder: "SEARCH_FIELD_PLACEHOLDER") }
+
+func placeholder(_ view: UIView) { view.backgroundColor = .placeholder }

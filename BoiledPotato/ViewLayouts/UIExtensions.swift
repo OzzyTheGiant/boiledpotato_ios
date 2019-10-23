@@ -2,11 +2,12 @@ import UIKit
 import Stevia
 
 extension UIColor {
-    class var neutral: UIColor { fetchColor(name: "COL_Neutral", hex: 0x000000) }
-    class var primary: UIColor { fetchColor(name: "COL_Primary", hex: 0xFFE55F)}
-    class var primary_dark: UIColor { fetchColor(name: "COL_Primary_Dark", hex: 0xEEC500) }
-    class var accent: UIColor { fetchColor(name: "COL_Accent", hex: 0xB35321) }
+    class var neutral:            UIColor { fetchColor(name: "COL_Neutral", hex: 0x000000) }
+    class var primary:            UIColor { fetchColor(name: "COL_Primary", hex: 0xFFE55F) }
+    class var primary_dark:       UIColor { fetchColor(name: "COL_Primary_Dark", hex: 0xEEC500) }
+    class var accent:             UIColor { fetchColor(name: "COL_Accent", hex: 0xB35321) }
     class var primary_background: UIColor { fetchColor(name: "COL_Primary_Background", hex: 0xFFF9C4) }
+    class var placeholder:        UIColor { fetchColor(name: "COL_Placeholder", hex: 0xBBBBBB) }
     
     private class func fetchColor(name: String, hex: Int) -> UIColor {
         if #available(iOS 11, *) {

@@ -20,4 +20,5 @@ struct Dimens {
     static let border_radius_cuisine    = CGFloat(5)
     
     static let max_text_width           = CGFloat(550)
+    static let placeholder_height       = CGFloat(120)
 }

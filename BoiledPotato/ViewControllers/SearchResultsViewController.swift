@@ -1,6 +1,7 @@
 import UIKit
 
 class SearchResultsViewController : UIViewController {
+    let layout = SearchResultsViewLayout()
     var searchKeywords : String = ""
     var cuisine : String = ""
     
@@ -11,7 +12,8 @@ class SearchResultsViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        view.backgroundColor = .primary_background
+        view.backgroundColor = .white
+        layout.arrangeSubviews(parent: view)
         print("\(searchKeywords) \(cuisine)")
     }
     
