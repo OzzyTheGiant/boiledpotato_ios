@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
             navigationController?.pushViewController(
                 SearchResultsViewController(keywords, cuisine: selectedCuisineButton?.currentTitle?.lowercased() ?? ""),
                 animated: true
-            )
+            ); return
         }
         
         var style = ToastStyle()
