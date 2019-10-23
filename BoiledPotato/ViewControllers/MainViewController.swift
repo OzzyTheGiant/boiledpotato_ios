@@ -17,6 +17,16 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layout.setUpScrollViewContentSize()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     /** toggle cuisine button colors to mark as selected or deselected */
     @objc func selectCuisineButton(_ button: UIButton) {
         if button == selectedCuisineButton {
@@ -30,11 +40,6 @@ class MainViewController: UIViewController {
         
         layout.toggleCuisineButton(button, check: true)
         selectedCuisineButton = button
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     /** Dismiss keyboard app when pressing outside of search field */

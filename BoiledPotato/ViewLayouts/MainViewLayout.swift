@@ -12,6 +12,7 @@ class MainViewLayout {
     let searchButton      = UIButton()          .style(button_icon_search)
     
     // filterComponent and its subviews
+    let scrollView        = UIScrollView()
     let filterComponent   = UIView()            .style(component)
     let cuisineHeading    = UILabel()           .style(text_heading_cuisine)
     let cuisineParagraph  = UILabel()           .style(text_paragraph_cuisine)
@@ -41,10 +42,12 @@ class MainViewLayout {
                 searchField,
                 searchButton
             ]),
-            filterComponent.sv([
-                cuisineHeading,
-                cuisineParagraph
-            ] + cuisineButtons
+            scrollView.sv(
+                filterComponent.sv([
+                    cuisineHeading,
+                    cuisineParagraph
+                ] + cuisineButtons
+                )
             )
         ])
         
@@ -72,10 +75,14 @@ class MainViewLayout {
         searchButton.Top == searchField.Top
         searchButton.Right == searchComponent.layoutMarginsGuide.Right
         
-        // filter component and subview constraints
-        filterComponent.Top == searchComponent.Bottom
-        filterComponent.Bottom == parent.Bottom
-        filterComponent.fillHorizontally()
+        // scrollview, filter component and subview constraints
+        scrollView.Top == searchComponent.Bottom
+        scrollView.Bottom == parent.Bottom
+        scrollView.Width == parent.Width
+        
+        filterComponent.Top == scrollView.Bottom
+        filterComponent.Width == parent.Width
+        filterComponent.Bottom == cuisineButtons.last!.Bottom - Dimens.padding_viewport
       
         cuisineHeading.Top == filterComponent.layoutMarginsGuide.Top
         cuisineHeading.Left == filterComponent.layoutMarginsGuide.Left
@@ -111,6 +118,10 @@ class MainViewLayout {
         }
         
         button.alignImageAndTitleVertically()
+    }
+    
+    func setUpScrollViewContentSize() {
+        scrollView.contentSize = filterComponent.frame.size
     }
     
     func toggleCuisineButton(_ button: UIButton, check: Bool) {
