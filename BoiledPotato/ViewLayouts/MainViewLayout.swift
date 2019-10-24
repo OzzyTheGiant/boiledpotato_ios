@@ -4,18 +4,18 @@ import Stevia
 
 class MainViewLayout {
     // searchComponent and its subviews
-    let searchComponent   = UIView()            .style(component_background_neutral)
-    let backButton        = UIButton()          .style(button_icon_back)
-    let title             = UILabel()           .style(text_heading_vl_main)
-    let favoritesButton   = UIButton()          .style(button_icon_star)
-    let searchField       = UIPaddedTextField() .style(field_search)
-    let searchButton      = UIButton()          .style(button_icon_search)
+    let searchComponent  = UIView().style(component_bkg_neutral)
+    let backButton       = UIButton("ICO_Back_Arrow").style(button_icon)
+    let title            = UILabel("MAIN_VIEW_TITLE").style(text_heading_view_layout)
+    let favoritesButton  = UIButton("ICO_Star").style(button_icon)
+    let searchField      = UIPaddedTextField(hint: "SEARCH_FIELD_PLACEHOLDER")
+    let searchButton     = UIButton("ICO_Search").style(button_icon_primary)
     
     // filterComponent and its subviews
-    let scrollView        = UIScrollView()
-    let filterComponent   = UIView()            .style(component)
-    let cuisineHeading    = UILabel()           .style(text_heading_cuisine)
-    let cuisineParagraph  = UILabel()           .style(text_paragraph_cuisine)
+    let scrollView       = UIScrollView()
+    let filterComponent  = UIView().style(component)
+    let cuisineHeading   = UILabel("CUISINE_HEADING").style(text_heading)
+    let cuisineParagraph = UILabel("CUISINE_PARAGRAPH").style(description)
     
     // Cuisine buttons
     let cuisineButtons : [UICuisineButton] = [

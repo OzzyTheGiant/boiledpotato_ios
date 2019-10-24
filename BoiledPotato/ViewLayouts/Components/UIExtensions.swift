@@ -33,3 +33,17 @@ extension UIColor {
        )
     }
 }
+
+extension UIButton {
+    convenience init(_ iconKey: String) {
+        self.init()
+        self.setBackgroundImage(UIImage(named: iconKey), for: UIControl.State.normal)
+    }
+}
+
+extension UILabel {
+    convenience init (_ textKey: String) {
+        self.init()
+        self.text = NSLocalizedString(textKey, comment: "")
+    }
+}

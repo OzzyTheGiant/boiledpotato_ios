@@ -8,9 +8,9 @@ class SearchResultsViewLayout {
     let placeholders = [ShimmeringView(), ShimmeringView()]
     
     // header component
-    let headerComponent = UIView().style(component_background_neutral)
-    let backButton = UIButton().style(button_icon_back)
-    let title = UILabel().style(text_heading_vl_search)
+    let headerComponent = UIView().style(component_bkg_neutral)
+    let backButton = UIButton("ICO_Back_Arrow").style(button_icon)
+    let title = UILabel("SEARCH_RESULTS_VIEW_TITLE").style(text_heading_view_layout)
     
     func arrangeSubviews(parent: UIView) {
         parent.sv(

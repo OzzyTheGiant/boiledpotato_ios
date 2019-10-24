@@ -6,7 +6,7 @@ func component(_ view: UIView) {
     view.top(p).bottom(p).left(p).right(p)
 }
 
-func component_background_neutral(_ view: UIView) {
+func component_bkg_neutral(_ view: UIView) {
     component(view)
     view.backgroundColor = .neutral
 }
@@ -19,52 +19,33 @@ func component_placeholders(_ placeholderComponent: UIStackView) {
     placeholderComponent.spacing = Dimens.padding_viewport
 }
 
-func button_icon(_ button: UIButton, iconKey assetName: String) {
-    button.setBackgroundImage(UIImage(named: assetName), for: UIControl.State.normal)
+func button_icon(_ button: UIButton) {
     button.tintColor = .primary
     button.layer.cornerRadius = Dimens.border_radius_main
     button.size(Dimens.button_size_main)
 }
 
-func button_icon_primary(_ button: UIButton, iconKey assetName: String) {
-    button_icon(button, iconKey: assetName)
+func button_icon_primary(_ button: UIButton) {
+    button_icon(button)
     button.backgroundColor = .primary
     button.tintColor = .neutral
 }
 
-func button_icon_back(_ button: UIButton) { button_icon(button, iconKey: "ICO_Back_Arrow") }
-func button_icon_star(_ button: UIButton) { button_icon(button, iconKey: "ICO_Star") }
-func button_icon_search(_ button: UIButton) { button_icon_primary(button, iconKey: "ICO_Search") }
-
-func text_heading(_ label: UILabel, key: String) {
-    label.text = NSLocalizedString(key, comment: "")
+func text_heading(_ label: UILabel) {
     label.font = UIFont.systemFont(ofSize: Dimens.font_size_headings, weight: UIFont.Weight.bold)
-    label.textAlignment = NSTextAlignment.center
+    label.textAlignment = .center
 }
 
-func text_heading_view_layout(_ label: UILabel, key: String) {
-    text_heading(label, key: key)
+func text_heading_view_layout(_ label: UILabel) {
+    text_heading(label)
     label.textColor = .primary
 }
 
-func paragraph(_ label: UILabel, key: String, alignment : NSTextAlignment = .left) {
-    label.text = NSLocalizedString(key, comment: "")
+func description(_ label: UILabel) {
     label.preferredMaxLayoutWidth = Dimens.max_text_width
-    label.textAlignment = alignment
+    label.textAlignment = .center
 }
 
-func text_heading_vl_main(_ label: UILabel) { text_heading_view_layout(label, key: "MAIN_VIEW_TITLE") }
-func text_heading_vl_search(_ label: UILabel) { text_heading_view_layout(label, key: "SEARCH_RESULTS_VIEW_TITLE") }
-func text_heading_cuisine(_ label: UILabel) { text_heading(label, key: "CUISINE_HEADING") }
-func text_paragraph_cuisine(_ label: UILabel) { paragraph(label, key: "CUISINE_PARAGRAPH", alignment: .center) }
-
-func field(_ field: UITextField, placeholder: String) {
-    field.backgroundColor = .white
-    field.placeholder = NSLocalizedString(placeholder, comment: "")
-    field.layer.borderWidth = 0
-    field.layer.cornerRadius = Dimens.border_radius_main
+func placeholder(_ view: UIView) {
+    view.backgroundColor = .placeholder
 }
-
-func field_search(_ textField: UITextField) { field(textField, placeholder: "SEARCH_FIELD_PLACEHOLDER") }
-
-func placeholder(_ view: UIView) { view.backgroundColor = .placeholder }

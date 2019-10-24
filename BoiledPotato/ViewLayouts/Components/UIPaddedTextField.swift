@@ -8,8 +8,13 @@ class UIPaddedTextField : UITextField {
         fatalError("init(coder:) is not implemented")
     }
     
-    convenience init() {
+    /** custom initializer for app's fields */
+    convenience init(hint placeholder: String) {
         self.init(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        self.placeholder = NSLocalizedString("SEARCH_FIELD_PLACEHOLDER", comment: "")
+        self.backgroundColor = .white
+        self.layer.borderWidth = 0
+        self.layer.cornerRadius = Dimens.border_radius_main
     }
     
     override init(frame: CGRect) {
