@@ -33,32 +33,3 @@ extension UIColor {
        )
     }
 }
-
-extension UIButton {
-    convenience init(textKey: String, iconKey: String) {
-        self.init()
-        self.setTitle(NSLocalizedString(textKey, comment: ""), for: .normal)
-        self.setImage(UIImage(named: iconKey), for: .normal)
-    }
-    
-    func alignImageAndTitleVertically(
-        padding: CGFloat = Dimens.padding_button_cuisine,
-        iconSize: CGFloat = Dimens.icon_size_cuisine,
-        totalSize: CGFloat = Dimens.button_size_cuisine
-    ) {
-        let titleSize = self.titleLabel!.frame.size
-        
-        // apparently, constraints do not work on UIButton titleLabels, so edge insets are needed
-        self.titleEdgeInsets = UIEdgeInsets(
-            top: iconSize + padding,
-            left: -(totalSize - titleSize.width) / 3,
-            bottom: 0,
-            right: 0
-        )
-        
-        self.imageView!.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView!.CenterX == self.CenterX
-        self.imageView!.Top == self.Top + padding
-        self.imageView!.size(iconSize)
-    }
-}
