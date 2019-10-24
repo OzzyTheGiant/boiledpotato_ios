@@ -27,6 +27,8 @@
 		45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; };
 		45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */; };
+		45E1A8572360ECE700705FEC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1A8562360ECE700705FEC /* Recipe.swift */; };
+		45E1A85A236208B100705FEC /* UICuisineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1A859236208B100705FEC /* UICuisineButton.swift */; };
 		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
 		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
 		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
@@ -89,6 +91,8 @@
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
 		45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShimmerSwift.framework; path = Carthage/Build/iOS/ShimmerSwift.framework; sourceTree = "<group>"; };
 		45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewLayout.swift; sourceTree = "<group>"; };
+		45E1A8562360ECE700705FEC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		45E1A859236208B100705FEC /* UICuisineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICuisineButton.swift; sourceTree = "<group>"; };
 		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
 		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		454C300523470E8300EBC4DE /* BoiledPotato */ = {
 			isa = PBXGroup;
 			children = (
+				45E1A8552360ECC800705FEC /* Models */,
 				45E4EB90234938D300EE07FF /* ViewControllers */,
 				45E4EB8D2349384700EE07FF /* ViewLayouts */,
 				454C300623470E8300EBC4DE /* AppDelegate.swift */,
@@ -188,13 +193,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		45E1A8552360ECC800705FEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45E1A8562360ECE700705FEC /* Recipe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45E1A8582362080A00705FEC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				45E1A859236208B100705FEC /* UICuisineButton.swift */,
+				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
+				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		45E4EB8D2349384700EE07FF /* ViewLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				45E1A8582362080A00705FEC /* Components */,
 				45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */,
 				45E1A853235F607F00705FEC /* SearchResultsViewLayout.swift */,
-				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
-				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
 				456CB9B72358F08700BD487F /* Styles.swift */,
 				45A9987F234D2B34008A2CD2 /* Dimens.swift */,
 			);
@@ -375,9 +397,11 @@
 				45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */,
 				456CB9B82358F08700BD487F /* Styles.swift in Sources */,
 				45A99880234D2B34008A2CD2 /* Dimens.swift in Sources */,
+				45E1A85A236208B100705FEC /* UICuisineButton.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,
 				45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */,
+				45E1A8572360ECE700705FEC /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

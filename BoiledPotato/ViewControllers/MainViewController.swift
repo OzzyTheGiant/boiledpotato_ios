@@ -3,7 +3,7 @@ import ToastSwiftFramework
 
 class MainViewController: UIViewController {
     private let layout = MainViewLayout()
-    private var selectedCuisineButton : UIButton?
+    private var selectedCuisineButton : UICuisineButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +28,14 @@ class MainViewController: UIViewController {
     }
     
     /** toggle cuisine button colors to mark as selected or deselected */
-    @objc func selectCuisineButton(_ button: UIButton) {
+    @objc func selectCuisineButton(_ button: UICuisineButton) {
         if button == selectedCuisineButton {
-            layout.toggleCuisineButton(button, check: false);
+            button.toggle()
             selectedCuisineButton = nil; return
         }
         
-        if selectedCuisineButton != nil {
-            layout.toggleCuisineButton(selectedCuisineButton!, check: false)
-        }
-        
-        layout.toggleCuisineButton(button, check: true)
+        if selectedCuisineButton != nil { selectedCuisineButton?.toggle() }
+        button.toggle()
         selectedCuisineButton = button
     }
     

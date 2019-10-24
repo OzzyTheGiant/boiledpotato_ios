@@ -18,16 +18,16 @@ class MainViewLayout {
     let cuisineParagraph  = UILabel()           .style(text_paragraph_cuisine)
     
     // Cuisine buttons
-    let cuisineButtons : [UIButton] = [
-        UIButton(textKey: "AMERICAN", iconKey: "ICO_Burger"),
-        UIButton(textKey: "MEXICAN", iconKey: "ICO_Taco"),
-        UIButton(textKey: "CHINESE", iconKey: "ICO_Rice"),
-        UIButton(textKey: "JAPANESE", iconKey: "ICO_Sushi"),
-        UIButton(textKey: "INDIAN", iconKey: "ICO_Curry"),
-        UIButton(textKey: "FRENCH", iconKey: "ICO_Croissant"),
-        UIButton(textKey: "ITALIAN", iconKey: "ICO_Pizza"),
-        UIButton(textKey: "SPANISH", iconKey: "ICO_Paella"),
-        UIButton(textKey: "BRITISH", iconKey: "ICO_Fish_And_Chips"),
+    let cuisineButtons : [UICuisineButton] = [
+        UICuisineButton(textKey: "AMERICAN", iconKey: "ICO_Burger"),
+        UICuisineButton(textKey: "MEXICAN", iconKey: "ICO_Taco"),
+        UICuisineButton(textKey: "CHINESE", iconKey: "ICO_Rice"),
+        UICuisineButton(textKey: "JAPANESE", iconKey: "ICO_Sushi"),
+        UICuisineButton(textKey: "INDIAN", iconKey: "ICO_Curry"),
+        UICuisineButton(textKey: "FRENCH", iconKey: "ICO_Croissant"),
+        UICuisineButton(textKey: "ITALIAN", iconKey: "ICO_Pizza"),
+        UICuisineButton(textKey: "SPANISH", iconKey: "ICO_Paella"),
+        UICuisineButton(textKey: "BRITISH", iconKey: "ICO_Fish_And_Chips"),
     ]
     
     func arrangeSubviews(for parent: UIView) {
@@ -94,7 +94,6 @@ class MainViewLayout {
         
         for (index, button) in cuisineButtons.enumerated() {
             arrangeCuisineButton(button, index: index, rootView: parent)
-            button.style(button_cuisine_unchecked)
         }
     }
 
@@ -116,15 +115,9 @@ class MainViewLayout {
             case 2: button.CenterX == filterComponent.CenterX; break
             default: button.Right == filterComponent.layoutMarginsGuide.Right
         }
-        
-        button.alignImageAndTitleVertically()
     }
     
     func setUpScrollViewContentSize() {
         scrollView.contentSize = filterComponent.frame.size
-    }
-    
-    func toggleCuisineButton(_ button: UIButton, check: Bool) {
-        button.style(check ? button_cuisine_checked : button_cuisine_unchecked)
     }
 }
