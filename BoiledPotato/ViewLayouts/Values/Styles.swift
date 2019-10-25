@@ -6,11 +6,6 @@ func component(_ view: UIView) {
     view.top(p).bottom(p).left(p).right(p)
 }
 
-func component_bkg_neutral(_ view: UIView) {
-    component(view)
-    view.backgroundColor = .neutral
-}
-
 func component_placeholders(_ placeholderComponent: UIStackView) {
     component(placeholderComponent)
     placeholderComponent.axis = .vertical

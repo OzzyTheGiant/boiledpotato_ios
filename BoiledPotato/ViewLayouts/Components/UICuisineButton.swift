@@ -2,7 +2,7 @@ import UIKit
 import Stevia
 
 class UICuisineButton : UIButton {
-    var isChecked = false
+    private var isChecked = false
     
     convenience init (textKey: String, iconKey: String) {
         self.init()

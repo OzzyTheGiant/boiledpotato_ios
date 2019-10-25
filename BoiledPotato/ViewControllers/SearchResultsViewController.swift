@@ -14,8 +14,7 @@ class SearchResultsViewController : UIViewController {
     override func viewDidLoad() {
         view.backgroundColor = .white
         layout.arrangeSubviews(parent: view)
-        
-        layout.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
+        layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {

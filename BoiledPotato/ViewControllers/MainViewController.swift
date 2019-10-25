@@ -8,18 +8,18 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout.arrangeSubviews(for: view)
-        layout.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
-        layout.searchButton.addTarget(self, action: #selector(startNextScene), for: .touchUpInside)
+        layout.searchComponent.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
+        layout.searchComponent.searchButton.addTarget(self, action: #selector(startNextScene), for: .touchUpInside)
         
         // add click handlers for cuisine buttons
-        for button in layout.cuisineButtons {
+        for button in layout.filterComponent.cuisineButtons {
             button.addTarget(self, action: #selector(selectCuisineButton), for: .touchUpInside)
         }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        layout.setUpScrollViewContentSize()
+        layout.setUpScrollViewContentSize(rootViewSize: view.frame.size)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func startNextScene(_ sender: AnyObject) {
-        if let keywords = layout.searchField.text, !keywords.isEmpty {
+        if let keywords = layout.searchComponent.searchField.text, !keywords.isEmpty {
             navigationController?.pushViewController(
                 SearchResultsViewController(keywords, cuisine: selectedCuisineButton?.currentTitle?.lowercased() ?? ""),
                 animated: true
