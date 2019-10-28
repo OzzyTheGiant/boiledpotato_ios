@@ -18,6 +18,11 @@
 		455EA8EC23623758006D8E5D /* UIHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8EB23623758006D8E5D /* UIHeaderView.swift */; };
 		455EA8EE2362390C006D8E5D /* UISearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8ED2362390C006D8E5D /* UISearchView.swift */; };
 		455EA8F0236242A4006D8E5D /* UICuisineFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8EF236242A4006D8E5D /* UICuisineFilterView.swift */; };
+		455EA8F323636001006D8E5D /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8F223636001006D8E5D /* SearchResultsViewModel.swift */; };
+		455EA8F523639FDA006D8E5D /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455EA8F423639FDA006D8E5D /* Swinject.framework */; };
+		455EA8F623639FDA006D8E5D /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 455EA8F423639FDA006D8E5D /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		455EA8F92363A131006D8E5D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8F82363A131006D8E5D /* Container.swift */; };
+		455EA8FB2365148C006D8E5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8FA2365148C006D8E5D /* Coordinator.swift */; };
 		456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456049A5235E3E9D00316E36 /* SearchResultsViewController.swift */; };
 		456CB9AE23564C0700BD487F /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 456CB9AD23564C0600BD487F /* Cartfile */; };
 		456CB9B023564F7800BD487F /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 456CB9AF23564F7800BD487F /* Cartfile.resolved */; };
@@ -62,6 +67,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */,
+				455EA8F623639FDA006D8E5D /* Swinject.framework in Embed Frameworks */,
 				45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */,
 				456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
@@ -88,6 +94,10 @@
 		455EA8EB23623758006D8E5D /* UIHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHeaderView.swift; sourceTree = "<group>"; };
 		455EA8ED2362390C006D8E5D /* UISearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchView.swift; sourceTree = "<group>"; };
 		455EA8EF236242A4006D8E5D /* UICuisineFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICuisineFilterView.swift; sourceTree = "<group>"; };
+		455EA8F223636001006D8E5D /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
+		455EA8F423639FDA006D8E5D /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		455EA8F82363A131006D8E5D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		455EA8FA2365148C006D8E5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		456049A5235E3E9D00316E36 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		456CB9AD23564C0600BD487F /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		456CB9AF23564F7800BD487F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
@@ -110,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */,
+				455EA8F523639FDA006D8E5D /* Swinject.framework in Frameworks */,
 				45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */,
 				456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */,
 			);
@@ -159,7 +170,9 @@
 		454C300523470E8300EBC4DE /* BoiledPotato */ = {
 			isa = PBXGroup;
 			children = (
+				455EA8F72363A111006D8E5D /* DependencyInjection */,
 				45E1A8552360ECC800705FEC /* Models */,
+				455EA8F123635FB9006D8E5D /* ViewModels */,
 				45E4EB90234938D300EE07FF /* ViewControllers */,
 				45E4EB8D2349384700EE07FF /* ViewLayouts */,
 				454C300623470E8300EBC4DE /* AppDelegate.swift */,
@@ -198,9 +211,27 @@
 			path = Values;
 			sourceTree = "<group>";
 		};
+		455EA8F123635FB9006D8E5D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				455EA8F223636001006D8E5D /* SearchResultsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		455EA8F72363A111006D8E5D /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				455EA8F82363A131006D8E5D /* Container.swift */,
+				455EA8FA2365148C006D8E5D /* Coordinator.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
 		456CB9B123565A5000BD487F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				455EA8F423639FDA006D8E5D /* Swinject.framework */,
 				45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */,
 				456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */,
 				456CB9B223565A5000BD487F /* Stevia.framework */,
@@ -392,6 +423,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Stevia.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ShimmerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -418,10 +450,13 @@
 				45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */,
 				45E1A85A236208B100705FEC /* UICuisineButton.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
+				455EA8FB2365148C006D8E5D /* Coordinator.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,
 				45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */,
 				45E1A8572360ECE700705FEC /* Recipe.swift in Sources */,
+				455EA8F92363A131006D8E5D /* Container.swift in Sources */,
 				455EA8F0236242A4006D8E5D /* UICuisineFilterView.swift in Sources */,
+				455EA8F323636001006D8E5D /* SearchResultsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

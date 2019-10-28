@@ -1,14 +1,17 @@
 import UIKit
 
 class SearchResultsViewController : UIViewController {
+    weak var coordinator : Coordinator?
     let layout = SearchResultsViewLayout()
-    var searchKeywords : String = ""
-    var cuisine : String = ""
+    let viewModel : SearchResultsViewModel
     
-    convenience init(_ keywords: String, cuisine: String) {
-        self.init()
-        self.searchKeywords = keywords
-        self.cuisine = cuisine
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(viewModel: SearchResultsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -17,12 +20,7 @@ class SearchResultsViewController : UIViewController {
         layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
     @objc func endScene() {
-        navigationController?.popViewController(animated: true)
+        coordinator?.returnToMainView()
     }
 }

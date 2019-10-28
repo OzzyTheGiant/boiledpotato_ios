@@ -2,6 +2,7 @@ import UIKit
 import ToastSwiftFramework
 
 class MainViewController: UIViewController {
+    public weak var coordinator: Coordinator?
     private let layout = MainViewLayout()
     private var selectedCuisineButton : UICuisineButton?
     
@@ -9,7 +10,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         layout.arrangeSubviews(for: view)
         layout.searchComponent.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
-        layout.searchComponent.searchButton.addTarget(self, action: #selector(startNextScene), for: .touchUpInside)
+        layout.searchComponent.searchButton.addTarget(self, action: #selector(validateAndSubmitSearchKeywords), for: .touchUpInside)
         
         // add click handlers for cuisine buttons
         for button in layout.filterComponent.cuisineButtons {
@@ -22,9 +23,9 @@ class MainViewController: UIViewController {
         layout.setUpScrollViewContentSize(rootViewSize: view.frame.size)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+    /** Dismiss keyboard app when pressing outside of search field */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     /** toggle cuisine button colors to mark as selected or deselected */
@@ -39,21 +40,16 @@ class MainViewController: UIViewController {
         selectedCuisineButton = button
     }
     
-    /** Dismiss keyboard app when pressing outside of search field */
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     @objc func suspendApp(_ sender: AnyObject) {
-        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        coordinator?.stop()
     }
     
-    @objc func startNextScene(_ sender: AnyObject) {
+    @objc func validateAndSubmitSearchKeywords(_ sender: AnyObject) {
+        self.view.endEditing(true)
+        
         if let keywords = layout.searchComponent.searchField.text, !keywords.isEmpty {
-            navigationController?.pushViewController(
-                SearchResultsViewController(keywords, cuisine: selectedCuisineButton?.currentTitle?.lowercased() ?? ""),
-                animated: true
-            ); return
+            let cuisine = selectedCuisineButton?.currentTitle?.lowercased() ?? ""
+            coordinator?.displaySearchResultsView(keywords, cuisine: cuisine); return
         }
         
         var style = ToastStyle()

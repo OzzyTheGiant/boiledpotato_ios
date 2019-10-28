@@ -1,16 +1,21 @@
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let container = createContainer()
     var window: UIWindow?
-    let navController = UINavigationController()
+    var coordinator : Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
-        navController.pushViewController(MainViewController(), animated: false)
-        window?.rootViewController = navController
+        window?.rootViewController = UINavigationController()
+
+        coordinator = Coordinator(navController: window?.rootViewController as! UINavigationController, container: container)
+        coordinator?.start()
+        
         window?.makeKeyAndVisible()
         return true
     }
