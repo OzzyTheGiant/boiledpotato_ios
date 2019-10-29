@@ -1,7 +1,7 @@
 struct Recipe {
     var id: CLong = 0
     var name: String = ""
-    var prepMinutes: String = ""
+    var prepMinutes: Int = 0
     var imageFileName: String = ""
     var servings: Int = 0
     var isFavorite: Bool = false
@@ -10,7 +10,7 @@ struct Recipe {
     
     init() {}
     
-    init(id: CLong, name: String, prepMinutes: String, image: String) {
+    init(id: CLong, name: String, prepMinutes: Int, image: String) {
         self.id = id
         self.name = name
         self.prepMinutes = prepMinutes
