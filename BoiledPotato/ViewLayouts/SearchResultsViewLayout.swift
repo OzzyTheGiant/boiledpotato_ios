@@ -7,11 +7,25 @@ class SearchResultsViewLayout {
     let placeholderComponent = UIStackView().style(component_placeholders)
     let placeholders = [ShimmeringView(), ShimmeringView()]
     let headerComponent = UIHeaderView(titleKey: "SEARCH_RESULTS_VIEW_TITLE")
+    weak var recipeCollection : UICollectionView!
     
     func arrangeSubviews(parent: UIView) {
+        let collectionLayout = UICollectionViewFlowLayout()
+        
+        collectionLayout.minimumInteritemSpacing = Dimens.padding_viewport
+        collectionLayout.minimumLineSpacing = Dimens.padding_viewport
+        collectionLayout.sectionInset = .zero
+        collectionLayout.itemSize = CGSize(
+            width: parent.frame.width - Dimens.padding_viewport * 2,
+            height: Dimens.placeholder_height
+        )
+        
+        let recipeCollection = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        
         parent.sv(
             headerComponent,
-            placeholderComponent
+            placeholderComponent,
+            recipeCollection
         )
         
         // header component and subviews' constraints
@@ -36,5 +50,18 @@ class SearchResultsViewLayout {
             placeholder.shimmerHighlightLength = 0.8
             placeholder.isShimmering = true
         }
+        
+        placeholderComponent.isHidden = true
+        
+        // recipe collection constraints
+        let p = Dimens.padding_viewport
+        recipeCollection.left(p).right(p).bottom(p)
+        recipeCollection.Top == placeholderComponent.Top
+        recipeCollection.Width == parent.Width
+        recipeCollection.Bottom == parent.Bottom
+        recipeCollection.alwaysBounceVertical = true
+        recipeCollection.backgroundColor = .white
+        
+        self.recipeCollection = recipeCollection
     }
 }
