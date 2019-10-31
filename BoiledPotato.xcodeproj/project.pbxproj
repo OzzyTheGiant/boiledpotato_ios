@@ -31,6 +31,7 @@
 		456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; };
 		456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45909A9023687B8E00864491 /* UIRecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45909A8F23687B8E00864491 /* UIRecipeCard.swift */; };
+		45996115236A842D00C587BA /* UIErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45996114236A842D00C587BA /* UIErrorView.swift */; };
 		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
 		45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; };
@@ -105,6 +106,7 @@
 		456CB9B223565A5000BD487F /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
 		456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		45909A8F23687B8E00864491 /* UIRecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecipeCard.swift; sourceTree = "<group>"; };
+		45996114236A842D00C587BA /* UIErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorView.swift; sourceTree = "<group>"; };
 		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
 		45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShimmerSwift.framework; path = Carthage/Build/iOS/ShimmerSwift.framework; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				45E1A859236208B100705FEC /* UICuisineButton.swift */,
 				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
 				45909A8F23687B8E00864491 /* UIRecipeCard.swift */,
+				45996114236A842D00C587BA /* UIErrorView.swift */,
 				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 			);
 			path = Components;
@@ -444,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455EA8EA23623664006D8E5D /* Dimens.swift in Sources */,
+				45996115236A842D00C587BA /* UIErrorView.swift in Sources */,
 				455EA8EE2362390C006D8E5D /* UISearchView.swift in Sources */,
 				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
 				455EA8E923623664006D8E5D /* Styles.swift in Sources */,

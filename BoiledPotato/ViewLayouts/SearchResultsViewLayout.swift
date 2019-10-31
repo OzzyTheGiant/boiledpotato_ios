@@ -7,6 +7,7 @@ class SearchResultsViewLayout {
     let placeholderComponent = UIStackView().style(component_placeholders)
     let placeholders = [ShimmeringView(), ShimmeringView()]
     let headerComponent = UIHeaderView(titleKey: "SEARCH_RESULTS_VIEW_TITLE")
+    let errorComponent = UIErrorView(true)
     weak var recipeCollection : UICollectionView!
     
     func arrangeSubviews(parent: UIView) {
@@ -25,7 +26,8 @@ class SearchResultsViewLayout {
         parent.sv(
             headerComponent,
             placeholderComponent,
-            recipeCollection
+            recipeCollection,
+            errorComponent
         )
         
         // header component and subviews' constraints
@@ -63,5 +65,11 @@ class SearchResultsViewLayout {
         recipeCollection.backgroundColor = .white
         
         self.recipeCollection = recipeCollection
+        
+        recipeCollection.isHidden = true
+        
+        errorComponent.Top == headerComponent.Bottom
+        errorComponent.Width == parent.Width
+        errorComponent.Bottom == parent.Bottom
     }
 }

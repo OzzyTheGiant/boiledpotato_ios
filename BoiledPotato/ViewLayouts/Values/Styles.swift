@@ -26,6 +26,14 @@ func button_icon_primary(_ button: UIButton) {
     button.tintColor = .neutral
 }
 
+func button_text_primary(_ button: UIButton) {
+    let p = Dimens.padding_button_text
+    button.top(p).bottom(p).left(p).right(p)
+    button.backgroundColor = .primary_dark
+    button.layer.cornerRadius = Dimens.border_radius_main
+    button.setTitleColor(.neutral, for: UIButton.State.normal)
+}
+
 func text_heading(_ label: UILabel) {
     label.font = UIFont.systemFont(ofSize: Dimens.font_size_headings, weight: UIFont.Weight.bold)
     label.textAlignment = .center
