@@ -11,7 +11,7 @@ struct Dimens {
     static let font_size_error_message  = font_size_headings
     
     static let icon_size_cuisine        = CGFloat(48)
-    static let icon_size_error          = CGFloat(96)
+    static let icon_size_error          = CGFloat(64)
     
     static let padding_main             = CGFloat(8)
     static let padding_viewport         = CGFloat(8)
