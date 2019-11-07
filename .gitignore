@@ -61,3 +61,6 @@ fastlane/test_output
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
+
+### Config files ###
+BoiledPotato/Config.json
