@@ -17,3 +17,21 @@ struct Recipe {
         self.imageFileName = image
     }
 }
+
+extension Recipe : Decodable {
+    enum CodingKeys : String, CodingKey {
+        case id = "id"
+        case name = "title"
+        case prepMinutes = "readyInMinutes"
+        case imageFileName = "image"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container     = try decoder.container(keyedBy: CodingKeys.self)
+        let name          = try container.decode(String.self, forKey: .name)
+        let prepMinutes   = try container.decode(Int.self, forKey: .prepMinutes)
+        let imageFileName = try container.decode(String.self, forKey: .imageFileName)
+        
+        self.init(id: 0, name: name, prepMinutes: prepMinutes, image: imageFileName)
+    }
+}
