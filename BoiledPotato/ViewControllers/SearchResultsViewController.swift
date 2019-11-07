@@ -2,6 +2,7 @@ import UIKit
 
 class SearchResultsViewController : UIViewController {
     weak var coordinator : Coordinator?
+    let imageBaseUrl = "https://spoonacular.com/recipeImages/"
     let layout = SearchResultsViewLayout()
     var searchQueryObserver : NSKeyValueObservation?
     @objc let viewModel : SearchResultsViewModel
@@ -67,6 +68,8 @@ class SearchResultsViewController : UIViewController {
             IndexPath(item: $0, section: 0)
         }
         
+        view.backgroundColor = .primary_background
+        layout.recipeCollection.backgroundColor = .primary_background
         layout.recipeCollection.insertItems(at: indexPaths)
         layout.recipeCollection.isHidden = false
     }
@@ -86,6 +89,9 @@ extension SearchResultsViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = layout.recipeCollection.dequeueReusableCell(withReuseIdentifier: UIRecipeCard.id, for: indexPath) as! UIRecipeCard
         cell.setText(viewModel.recipes[indexPath.item].name)
+        cell.setImage(withFileName: imageBaseUrl + viewModel.recipes[indexPath.item].imageFileName) { _ in
+            self.layout.recipeCollection.reloadItems(at: [indexPath])
+        }
         return cell
     }
 }

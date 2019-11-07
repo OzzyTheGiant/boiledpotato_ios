@@ -3,3 +3,4 @@ github "scalessec/Toast-Swift" ~> 5.0.0
 github "BeauNouvelle/ShimmerSwift" ~> 2.1.0
 github "Swinject/Swinject" ~> 2.7.1
 github "Alamofire/Alamofire" ~> 5.0.0-rc.3
+github "onevcat/Kingfisher" ~> 5.9.0

@@ -1,5 +1,6 @@
 import UIKit
 import Stevia
+import Kingfisher
 
 class UIRecipeCard : UICollectionViewCell {
     static let id = "RecipeCard"
@@ -24,7 +25,7 @@ class UIRecipeCard : UICollectionViewCell {
         // coloring
         self.contentView.backgroundColor = .accent
         recipeLabel.textColor = .white
-        recipeImage.backgroundColor = .primary_dark
+        recipeImage.backgroundColor = .white
         
         // recipe image constraints
         recipeImage.height(Dimens.recipe_image_height)
@@ -56,5 +57,22 @@ class UIRecipeCard : UICollectionViewCell {
         paragraphStyle.lineSpacing = Dimens.line_spacing_recipe_card
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         recipeLabel.attributedText = attributedString
+    }
+    
+    func setImage(withFileName fileName: String, onComplete reload: @escaping (Any) -> Void) {
+        // NOTE: this processor may need to be replaced by ResizingImageProcessor if images are too blurry on landscape mode
+        let imageProcessor = DownsamplingImageProcessor(size: recipeImage!.frame.size)
+        
+        recipeImage.kf.indicatorType = .activity
+        recipeImage.kf.setImage(
+            with: URL(string: fileName),
+            options: [
+                .processor(imageProcessor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(0.3)),
+                .cacheOriginalImage
+            ],
+            completionHandler: reload
+        )
     }
 }

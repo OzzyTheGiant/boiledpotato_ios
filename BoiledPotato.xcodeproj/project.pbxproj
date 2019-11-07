@@ -48,6 +48,8 @@
 		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
 		45EEF3712370DABA00B71B26 /* RecipeSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */; };
 		45EEF3772371BF0100B71B26 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EEF3762371BF0100B71B26 /* Config.json */; };
+		45EEF3792374B8C400B71B26 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EEF3782374B8C400B71B26 /* Kingfisher.framework */; };
+		45EEF37A2374B8C400B71B26 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45EEF3782374B8C400B71B26 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,7 @@
 				455EA8F623639FDA006D8E5D /* Swinject.framework in Embed Frameworks */,
 				45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */,
 				458171FE236C87CE00A8D658 /* Alamofire.framework in Embed Frameworks */,
+				45EEF37A2374B8C400B71B26 /* Kingfisher.framework in Embed Frameworks */,
 				456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -129,6 +132,7 @@
 		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
 		45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchQuery.swift; sourceTree = "<group>"; };
 		45EEF3762371BF0100B71B26 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
+		45EEF3782374B8C400B71B26 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,7 @@
 				455EA8F523639FDA006D8E5D /* Swinject.framework in Frameworks */,
 				45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */,
 				458171FD236C87CE00A8D658 /* Alamofire.framework in Frameworks */,
+				45EEF3792374B8C400B71B26 /* Kingfisher.framework in Frameworks */,
 				456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +258,7 @@
 		456CB9B123565A5000BD487F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45EEF3782374B8C400B71B26 /* Kingfisher.framework */,
 				458171FC236C87CD00A8D658 /* Alamofire.framework */,
 				455EA8F423639FDA006D8E5D /* Swinject.framework */,
 				45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */,
@@ -469,6 +475,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ShimmerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputFileListPaths = (
 			);
