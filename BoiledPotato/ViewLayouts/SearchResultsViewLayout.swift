@@ -53,8 +53,6 @@ class SearchResultsViewLayout {
             placeholder.isShimmering = true
         }
         
-        placeholderComponent.isHidden = true
-        
         // recipe collection constraints
         let p = Dimens.padding_viewport
         recipeCollection.left(p).right(p).bottom(p)
@@ -63,13 +61,15 @@ class SearchResultsViewLayout {
         recipeCollection.Bottom == parent.Bottom
         recipeCollection.alwaysBounceVertical = true
         recipeCollection.backgroundColor = .white
-        
-        self.recipeCollection = recipeCollection
-        
-        recipeCollection.isHidden = true
-        
+
         errorComponent.Top == headerComponent.Bottom
         errorComponent.Width == parent.Width
         errorComponent.Bottom == parent.Bottom
+        
+        self.recipeCollection = recipeCollection
+        
+        // visibility
+        recipeCollection.isHidden = true
+        errorComponent.isHidden = true
     }
 }
