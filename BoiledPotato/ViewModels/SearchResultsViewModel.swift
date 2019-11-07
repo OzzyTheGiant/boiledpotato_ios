@@ -1,7 +1,7 @@
 import Foundation
 
 class SearchResultsViewModel : NSObject {
-    let repository: RecipeRepository
+    private let repository: RecipeRepository
     let maxResultsSize = 10
     
     var searchKeywords : String = ""
