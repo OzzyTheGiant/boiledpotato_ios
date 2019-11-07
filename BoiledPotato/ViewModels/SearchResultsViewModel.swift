@@ -1,14 +1,37 @@
-class SearchResultsViewModel {
-    let repository: Any? = nil
+import Foundation
+
+class SearchResultsViewModel : NSObject {
+    let repository: RecipeRepository
     let maxResultsSize = 10
     
     var searchKeywords : String = ""
     var cuisine : String = ""
-    var recipes : [Recipe] = Array(repeating: Recipe(id: 0, name: "Sample Recipe", prepMinutes: 60, image: "sample.jpg"), count: 10)
+    var recipes : [Recipe] = []
+    var queryResult : Resource<RecipeSearchQuery> = Resource.Loading()
     
-    init() {}
+    // observable property to check if queryResult has changed
+    @objc dynamic var queryObservable : Int = 0
     
-    func fetchRecipes() -> [Recipe] {
-        return recipes
+    init(repository: RecipeRepository) {
+        self.repository = repository
+    }
+    
+    func fetchRecipes() {
+        // setup Alamofire request parameters
+        let parameters: [String: Any] = [
+            "query": searchKeywords,
+            "cuisine": cuisine,
+            "number": maxResultsSize,
+            "offset": recipes.count
+        ]
+        
+        repository.searchRecipes(queryData: parameters) { resource in
+            if resource is Resource.Success {
+                self.recipes.append(contentsOf: resource.data!.recipes!)
+            }
+            
+            self.queryResult = resource
+            self.queryObservable += 1
+        }
     }
 }
