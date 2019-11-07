@@ -30,8 +30,13 @@
 		456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B223565A5000BD487F /* Stevia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; };
 		456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		458171FD236C87CE00A8D658 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458171FC236C87CD00A8D658 /* Alamofire.framework */; };
+		458171FE236C87CE00A8D658 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 458171FC236C87CD00A8D658 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45817201236C91B600A8D658 /* RestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45817200236C91B600A8D658 /* RestApiService.swift */; };
+		45817203236F274900A8D658 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45817202236F274900A8D658 /* Resource.swift */; };
 		45909A9023687B8E00864491 /* UIRecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45909A8F23687B8E00864491 /* UIRecipeCard.swift */; };
 		45996115236A842D00C587BA /* UIErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45996114236A842D00C587BA /* UIErrorView.swift */; };
+		45996118236B4EAF00C587BA /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45996117236B4EAF00C587BA /* RecipeRepository.swift */; };
 		45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */; };
 		45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */; };
 		45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */; };
@@ -41,6 +46,8 @@
 		45E1A85A236208B100705FEC /* UICuisineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E1A859236208B100705FEC /* UICuisineButton.swift */; };
 		45E4EB8B2349241700EE07FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 45E4EB8A2349241700EE07FF /* .gitignore */; };
 		45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */; };
+		45EEF3712370DABA00B71B26 /* RecipeSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */; };
+		45EEF3772371BF0100B71B26 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EEF3762371BF0100B71B26 /* Config.json */; };
 		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +78,7 @@
 				456CB9B423565A5000BD487F /* Stevia.framework in Embed Frameworks */,
 				455EA8F623639FDA006D8E5D /* Swinject.framework in Embed Frameworks */,
 				45E1A852235F5FDB00705FEC /* ShimmerSwift.framework in Embed Frameworks */,
+				458171FE236C87CE00A8D658 /* Alamofire.framework in Embed Frameworks */,
 				456CB9BB235BB7A900BD487F /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -105,8 +113,12 @@
 		456CB9AF23564F7800BD487F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		456CB9B223565A5000BD487F /* Stevia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Stevia.framework; path = Carthage/Build/iOS/Stevia.framework; sourceTree = "<group>"; };
 		456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		458171FC236C87CD00A8D658 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		45817200236C91B600A8D658 /* RestApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiService.swift; sourceTree = "<group>"; };
+		45817202236F274900A8D658 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		45909A8F23687B8E00864491 /* UIRecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecipeCard.swift; sourceTree = "<group>"; };
 		45996114236A842D00C587BA /* UIErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorView.swift; sourceTree = "<group>"; };
+		45996117236B4EAF00C587BA /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
 		45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddedTextField.swift; sourceTree = "<group>"; };
 		45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShimmerSwift.framework; path = Carthage/Build/iOS/ShimmerSwift.framework; sourceTree = "<group>"; };
@@ -115,6 +127,8 @@
 		45E1A859236208B100705FEC /* UICuisineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICuisineButton.swift; sourceTree = "<group>"; };
 		45E4EB8A2349241700EE07FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		45E4EB8E2349389A00EE07FF /* MainViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewLayout.swift; sourceTree = "<group>"; };
+		45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchQuery.swift; sourceTree = "<group>"; };
+		45EEF3762371BF0100B71B26 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
 		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +140,7 @@
 				456CB9B323565A5000BD487F /* Stevia.framework in Frameworks */,
 				455EA8F523639FDA006D8E5D /* Swinject.framework in Frameworks */,
 				45E1A851235F5FDB00705FEC /* ShimmerSwift.framework in Frameworks */,
+				458171FD236C87CE00A8D658 /* Alamofire.framework in Frameworks */,
 				456CB9BA235BB7A900BD487F /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +191,8 @@
 			children = (
 				455EA8F72363A111006D8E5D /* DependencyInjection */,
 				45E1A8552360ECC800705FEC /* Models */,
+				45996116236B4E4300C587BA /* Repositories */,
+				458171FF236C910A00A8D658 /* Networking */,
 				455EA8F123635FB9006D8E5D /* ViewModels */,
 				45E4EB90234938D300EE07FF /* ViewControllers */,
 				45E4EB8D2349384700EE07FF /* ViewLayouts */,
@@ -183,6 +200,7 @@
 				454C300D23470E8B00EBC4DE /* Assets.xcassets */,
 				454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */,
 				454C301223470E8B00EBC4DE /* Info.plist */,
+				45EEF3762371BF0100B71B26 /* Config.json */,
 				45FB0E19234A9BA30052B8B5 /* Localizable.strings */,
 			);
 			path = BoiledPotato;
@@ -235,6 +253,7 @@
 		456CB9B123565A5000BD487F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				458171FC236C87CD00A8D658 /* Alamofire.framework */,
 				455EA8F423639FDA006D8E5D /* Swinject.framework */,
 				45E1A850235F5FDB00705FEC /* ShimmerSwift.framework */,
 				456CB9B9235BB7A900BD487F /* ToastSwiftFramework.framework */,
@@ -243,10 +262,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		458171FF236C910A00A8D658 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				45817200236C91B600A8D658 /* RestApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		45996116236B4E4300C587BA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				45996117236B4EAF00C587BA /* RecipeRepository.swift */,
+				45817202236F274900A8D658 /* Resource.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		45E1A8552360ECC800705FEC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				45E1A8562360ECE700705FEC /* Recipe.swift */,
+				45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +431,7 @@
 			files = (
 				456CB9AE23564C0700BD487F /* Cartfile in Resources */,
 				456CB9B023564F7800BD487F /* Cartfile.resolved in Resources */,
+				45EEF3772371BF0100B71B26 /* Config.json in Resources */,
 				454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */,
 				45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */,
 				45E4EB8B2349241700EE07FF /* .gitignore in Resources */,
@@ -430,6 +468,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ShimmerSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -449,17 +488,21 @@
 				455EA8EA23623664006D8E5D /* Dimens.swift in Sources */,
 				45996115236A842D00C587BA /* UIErrorView.swift in Sources */,
 				455EA8EE2362390C006D8E5D /* UISearchView.swift in Sources */,
+				45817203236F274900A8D658 /* Resource.swift in Sources */,
 				454C300923470E8300EBC4DE /* MainViewController.swift in Sources */,
 				455EA8E923623664006D8E5D /* Styles.swift in Sources */,
+				45EEF3712370DABA00B71B26 /* RecipeSearchQuery.swift in Sources */,
 				455EA8EC23623758006D8E5D /* UIHeaderView.swift in Sources */,
 				456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */,
 				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
 				45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */,
+				45996118236B4EAF00C587BA /* RecipeRepository.swift in Sources */,
 				45E1A85A236208B100705FEC /* UICuisineButton.swift in Sources */,
 				45A99884234E84D4008A2CD2 /* UIPaddedTextField.swift in Sources */,
 				455EA8FB2365148C006D8E5D /* Coordinator.swift in Sources */,
 				454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */,
 				45A9987E234D1FD5008A2CD2 /* UIExtensions.swift in Sources */,
+				45817201236C91B600A8D658 /* RestApiService.swift in Sources */,
 				45E1A8572360ECE700705FEC /* Recipe.swift in Sources */,
 				455EA8F92363A131006D8E5D /* Container.swift in Sources */,
 				45909A9023687B8E00864491 /* UIRecipeCard.swift in Sources */,
