@@ -8,7 +8,7 @@ struct Dimens {
     static let font_size_main           = CGFloat(16)
     static let font_size_headings       = font_size_main * 1.5
     static let font_size_cuisine_button = font_size_main * 0.75
-    static let font_size_error_message  = font_size_headings
+    static let font_size_error_message  = font_size_main * 1.25
     
     static let icon_size_cuisine        = CGFloat(48)
     static let icon_size_error          = CGFloat(64)

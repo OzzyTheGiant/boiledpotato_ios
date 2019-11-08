@@ -45,7 +45,6 @@ func text_heading_view_layout(_ label: UILabel) {
 }
 
 func description(_ label: UILabel) {
-    label.preferredMaxLayoutWidth = Dimens.max_text_width
     label.textAlignment = .center
 }
 

@@ -24,8 +24,7 @@ class UIErrorView : UIView {
         icon.tintColor = .red
         
         // constraints
-        message.Width == self.Width
-        message.preferredMaxLayoutWidth = Dimens.max_text_width
+        message.Width <= Dimens.max_text_width
         message.Left == self.Left + Dimens.padding_viewport
         message.Right == self.Right - Dimens.padding_viewport
         message.CenterX == self.CenterX
