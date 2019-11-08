@@ -27,6 +27,7 @@ struct Dimens {
     static let max_text_width           = CGFloat(550)
     static let placeholder_height       = CGFloat(240)
     static let recipe_image_height      = CGFloat(180)
+    static let button_load_more_height  = CGFloat(64)
     
     static let line_spacing_recipe_card = CGFloat(2.5)
 }

@@ -50,6 +50,7 @@
 		45EEF3772371BF0100B71B26 /* Config.json in Resources */ = {isa = PBXBuildFile; fileRef = 45EEF3762371BF0100B71B26 /* Config.json */; };
 		45EEF3792374B8C400B71B26 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EEF3782374B8C400B71B26 /* Kingfisher.framework */; };
 		45EEF37A2374B8C400B71B26 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45EEF3782374B8C400B71B26 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45EEF37E2375C03800B71B26 /* UIRecipeCollectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEF37D2375C03700B71B26 /* UIRecipeCollectionFooter.swift */; };
 		45FB0E1A234A9BA30052B8B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FB0E19234A9BA30052B8B5 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		45EEF3702370DABA00B71B26 /* RecipeSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchQuery.swift; sourceTree = "<group>"; };
 		45EEF3762371BF0100B71B26 /* Config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Config.json; sourceTree = "<group>"; };
 		45EEF3782374B8C400B71B26 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		45EEF37D2375C03700B71B26 /* UIRecipeCollectionFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRecipeCollectionFooter.swift; sourceTree = "<group>"; };
 		45FB0E19234A9BA30052B8B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,6 +305,7 @@
 				45E1A859236208B100705FEC /* UICuisineButton.swift */,
 				45A99883234E84D4008A2CD2 /* UIPaddedTextField.swift */,
 				45909A8F23687B8E00864491 /* UIRecipeCard.swift */,
+				45EEF37D2375C03700B71B26 /* UIRecipeCollectionFooter.swift */,
 				45996114236A842D00C587BA /* UIErrorView.swift */,
 				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 			);
@@ -515,6 +518,7 @@
 				45909A9023687B8E00864491 /* UIRecipeCard.swift in Sources */,
 				455EA8F0236242A4006D8E5D /* UICuisineFilterView.swift in Sources */,
 				455EA8F323636001006D8E5D /* SearchResultsViewModel.swift in Sources */,
+				45EEF37E2375C03800B71B26 /* UIRecipeCollectionFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

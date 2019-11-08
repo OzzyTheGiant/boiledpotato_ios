@@ -24,6 +24,7 @@ class SearchResultsViewController : UIViewController {
         layout.recipeCollection.dataSource = self
         layout.recipeCollection.delegate = self
         layout.recipeCollection.register(UIRecipeCard.self, forCellWithReuseIdentifier: UIRecipeCard.id)
+        layout.recipeCollection.register(UIRecipeCollectionFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: UIRecipeCollectionFooter.id)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +94,12 @@ extension SearchResultsViewController : UICollectionViewDataSource {
             self.layout.recipeCollection.reloadItems(at: [indexPath])
         }
         return cell
+    }
+    
+    /** add Load More button at the bottom of collection view */
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let button = layout.recipeCollection.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: UIRecipeCollectionFooter.id, for: indexPath)
+        return button
     }
 }
 

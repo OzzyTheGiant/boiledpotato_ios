@@ -12,14 +12,14 @@ class SearchResultsViewLayout {
     
     func arrangeSubviews(parent: UIView) {
         let collectionLayout = UICollectionViewFlowLayout()
+        let collectionWidth = parent.frame.width - Dimens.padding_viewport * 2
         
+        // Flow Layout settings
         collectionLayout.minimumInteritemSpacing = Dimens.padding_viewport
         collectionLayout.minimumLineSpacing = Dimens.padding_viewport
         collectionLayout.sectionInset = .zero
-        collectionLayout.itemSize = CGSize(
-            width: parent.frame.width - Dimens.padding_viewport * 2,
-            height: Dimens.placeholder_height
-        )
+        collectionLayout.footerReferenceSize = CGSize(width: collectionWidth, height: Dimens.button_load_more_height)
+        collectionLayout.itemSize = CGSize(width: collectionWidth, height: Dimens.placeholder_height)
         
         let recipeCollection = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
         
