@@ -10,7 +10,7 @@ class SearchResultsViewModel : NSObject {
     var queryResult : Resource<RecipeSearchQuery> = Resource.Loading()
     
     // observable property to check if queryResult has changed
-    @objc dynamic var queryObservable : Int = 0
+    @objc dynamic var queryObservable : Bool = false
     
     init(repository: RecipeRepository) {
         self.repository = repository
@@ -25,13 +25,16 @@ class SearchResultsViewModel : NSObject {
             "offset": recipes.count
         ]
         
+        queryResult = Resource.Loading()
+        self.queryObservable = !self.queryObservable
+        
         repository.searchRecipes(queryData: parameters) { resource in
             if resource is Resource.Success {
                 self.recipes.append(contentsOf: resource.data!.recipes!)
             }
             
             self.queryResult = resource
-            self.queryObservable += 1
+            self.queryObservable = !self.queryObservable
         }
     }
 }
