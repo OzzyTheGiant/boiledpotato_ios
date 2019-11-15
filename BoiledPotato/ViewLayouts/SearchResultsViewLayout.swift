@@ -22,6 +22,7 @@ class SearchResultsViewLayout {
         collectionLayout.itemSize = CGSize(width: collectionWidth, height: Dimens.placeholder_height)
         
         let recipeCollection = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        recipeCollection.bounces = false
         
         parent.sv(
             headerComponent,
@@ -60,8 +61,9 @@ class SearchResultsViewLayout {
         recipeCollection.Width == parent.Width
         recipeCollection.Bottom == parent.Bottom
         recipeCollection.alwaysBounceVertical = true
-        recipeCollection.backgroundColor = .white
+        recipeCollection.backgroundColor = .none
 
+        // error component constraints
         errorComponent.Top == headerComponent.Bottom
         errorComponent.Width == parent.Width
         errorComponent.Bottom == parent.Bottom
