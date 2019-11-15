@@ -1,11 +1,15 @@
 import UIKit
 
 class SearchResultsViewController : UIViewController {
+    // dependencies
     weak var coordinator : Coordinator?
+    @objc let viewModel : SearchResultsViewModel
+    
     let imageBaseUrl = "https://spoonacular.com/recipeImages/"
     let layout = SearchResultsViewLayout()
+    
     var searchQueryObserver : NSKeyValueObservation?
-    @objc let viewModel : SearchResultsViewModel
+    var footerIndexPath : IndexPath?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -21,6 +25,7 @@ class SearchResultsViewController : UIViewController {
         layout.arrangeSubviews(parent: view)
         layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
         
+        // set up recipe collection views, datasource, and delegate
         layout.recipeCollection.dataSource = self
         layout.recipeCollection.delegate = self
         layout.recipeCollection.register(UIRecipeCard.self, forCellWithReuseIdentifier: UIRecipeCard.id)
@@ -36,31 +41,43 @@ class SearchResultsViewController : UIViewController {
         viewModel.fetchRecipes()
     }
     
+    /** performs an action based on the status of resouce provded */
     func process(resource: Resource<RecipeSearchQuery>) {
         switch(resource) {
-            case is Resource<RecipeSearchQuery>.Loading :
-                toggleLoadingIndicators(); break;
             case is Resource<RecipeSearchQuery>.Success :
                 toggleLoadingIndicators()
-                displaySearchResults(); break;
+                displaySearchResults(); break
             case is Resource<RecipeSearchQuery>.Error :
                 toggleLoadingIndicators()
-                toggleError(message: resource.message!); break;
-            default: break;
+                toggleError(message: resource.message!); break
+            default:
+                toggleLoadingIndicators(on: true); break
         }
     }
     
-    func toggleLoadingIndicators() {
-        layout.placeholders.forEach { placeholder in
-            placeholder.isShimmering = false
+    func toggleLoadingIndicators(on: Bool = false) {
+        if viewModel.recipes.count == 0 {
+            // toggle shimmer views on/off
+            layout.placeholders.forEach { placeholder in
+                placeholder.isShimmering = on
+            }
+            
+            layout.placeholderComponent.isHidden = !on
+        } else {
+            changeLoadMoreButtonStatus(isLoading: true)
         }
+    }
+    
+    func toggleError(on: Bool = false, message: String) {
+        layout.recipeCollection.isScrollEnabled = true
         
-        layout.placeholderComponent.isHidden = !layout.placeholderComponent.isHidden
-    }
-    
-    func toggleError(message: String) {
-        layout.errorComponent.message.text = message
-        layout.errorComponent.isHidden = false
+        if viewModel.recipes.count == 0 {
+            // display error in it's own component
+            layout.errorComponent.message.text = message
+            layout.errorComponent.isHidden = !on
+        } else {
+            changeLoadMoreButtonStatus(isLoading: false, errorMessage: message)
+        }
     }
     
     func displaySearchResults() {
@@ -70,9 +87,37 @@ class SearchResultsViewController : UIViewController {
         }
         
         view.backgroundColor = .primary_background
-        layout.recipeCollection.backgroundColor = .primary_background
+        
+        // set data for recipe collection
         layout.recipeCollection.insertItems(at: indexPaths)
+        
+        // make sure recipe collection is displayed and scrollable
         layout.recipeCollection.isHidden = false
+        layout.recipeCollection.isScrollEnabled = true
+        
+        // reset Load More button
+        changeLoadMoreButtonStatus(isLoading: false)
+    }
+    
+    func changeLoadMoreButtonStatus(isLoading: Bool, errorMessage: String? = nil) {
+        let footer = layout.recipeCollection
+            .supplementaryView(forElementKind: UICollectionView.elementKindSectionFooter, at: footerIndexPath!)
+            as! UIRecipeCollectionFooter
+        
+        if isLoading {
+            footer.setLoadingStatus()
+        } else if let error = errorMessage {
+            footer.setErrorStatus(message: error)
+        } else {
+            footer.setSuccessStatus()
+        }
+        
+        footer.setNeedsDisplay()
+    }
+    
+    @objc func onClickLoadMoreButton() {
+        layout.recipeCollection.isScrollEnabled = false
+        viewModel.fetchRecipes()
     }
     
     @objc func endScene() {
@@ -88,24 +133,36 @@ extension SearchResultsViewController : UICollectionViewDataSource {
     
     /** bind data to reusable view */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = layout.recipeCollection.dequeueReusableCell(withReuseIdentifier: UIRecipeCard.id, for: indexPath) as! UIRecipeCard
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIRecipeCard.id, for: indexPath) as! UIRecipeCard
         cell.setText(viewModel.recipes[indexPath.item].name)
         cell.setImage(withFileName: imageBaseUrl + viewModel.recipes[indexPath.item].imageFileName) { _ in
-            self.layout.recipeCollection.reloadItems(at: [indexPath])
+            collectionView.reloadItems(at: [indexPath])
         }
         return cell
     }
     
     /** add Load More button at the bottom of collection view */
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let button = layout.recipeCollection.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: UIRecipeCollectionFooter.id, for: indexPath)
-        return button
+        let view = collectionView
+            .dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: UIRecipeCollectionFooter.id, for: indexPath)
+            as! UIRecipeCollectionFooter
+        
+        // hide button if all results have been fetched from repository
+        view.isHidden = viewModel.queryResult.data?.totalResults == viewModel.recipes.count
+        
+        // add click handler on first render
+        if view.loadButton.actions(forTarget: self, forControlEvent: .touchUpInside) == nil {
+            view.loadButton.addTarget(self, action: #selector(onClickLoadMoreButton), for: .touchUpInside)
+        }
+        
+        footerIndexPath = indexPath
+        return view
     }
 }
 
 extension SearchResultsViewController : UICollectionViewDelegate {
     // TODO: implement click handlers for collection items
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        // go to next view controller
     }
 }

@@ -3,7 +3,10 @@ import Stevia
 
 class UIRecipeCollectionFooter : UICollectionReusableView {
     static let id = "LoadButton"
-    let loadButton = UIButton().style(button_text_primary)
+    
+    public let loadButton = UIButton().style(button_text_primary)
+    public let loadingIndicator = UIActivityIndicatorView()
+    private let errorIcon = UIImage(named:"ICO_Error")
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -11,13 +14,52 @@ class UIRecipeCollectionFooter : UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.sv(loadButton)
+        self.sv(loadButton, loadingIndicator)
         
+        // constraints
         loadButton.Top == self.Top + Dimens.padding_viewport
-        loadButton.Width == self.Width
         loadButton.Bottom == self.Bottom
+        loadButton.Width == self.Width
+        loadButton.Height == self.Height
         
+        loadingIndicator.CenterX == loadButton.CenterX
+        loadingIndicator.CenterY == loadButton.CenterY
+        
+        setSuccessStatus()
+        
+        // content
+        loadingIndicator.color = .accent
+        loadButton.tintColor = .red
+        loadButton.titleLabel?.numberOfLines = 2
+    }
+    
+    func setLoadingStatus() {
+        loadingIndicator.startAnimating()
+        loadButton.backgroundColor = .primary
+        loadButton.text("")
+        loadButton.setImage(nil, for: .normal)
+        loadingIndicator.isHidden = false
+    }
+    
+    func setSuccessStatus() {
         loadButton.textKey("BUTTON_LOAD_MORE")
         loadButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Dimens.font_size_headings)
+        loadButton.backgroundColor = .primary_dark
+        
+        turnOffLoadingIndicator()
+    }
+    
+    func setErrorStatus(message: String) {
+        loadButton.text(message + " " + NSLocalizedString("TRY_AGAIN", comment: ""))
+        loadButton.titleLabel?.font = UIFont.systemFont(ofSize: Dimens.font_size_main)
+        loadButton.backgroundColor = .placeholder
+        loadButton.setImage(errorIcon, for: .normal)
+        
+        turnOffLoadingIndicator()
+    }
+    
+    func turnOffLoadingIndicator() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
     }
 }
