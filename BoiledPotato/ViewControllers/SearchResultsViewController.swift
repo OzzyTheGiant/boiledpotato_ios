@@ -85,8 +85,9 @@ class SearchResultsViewController : UIViewController {
     }
     
     func displaySearchResults() {
-        let count = viewModel.recipes.count
-        let indexPaths = Array(count - viewModel.maxResultsSize...count - 1).map {
+        let total = viewModel.recipes.count
+        let resultCount = viewModel.queryResult.data!.recipes!.count
+        let indexPaths = Array(total - resultCount...total - 1).map {
             IndexPath(item: $0, section: 0)
         }
         
