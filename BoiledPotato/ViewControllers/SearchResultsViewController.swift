@@ -30,6 +30,9 @@ class SearchResultsViewController : UIViewController {
         layout.recipeCollection.delegate = self
         layout.recipeCollection.register(UIRecipeCard.self, forCellWithReuseIdentifier: UIRecipeCard.id)
         layout.recipeCollection.register(UIRecipeCollectionFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: UIRecipeCollectionFooter.id)
+        
+        // add click handler on Retry Button
+        layout.errorComponent.button.addTarget(self, action: #selector(onClickLoadButton), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,8 +52,9 @@ class SearchResultsViewController : UIViewController {
                 displaySearchResults(); break
             case is Resource<RecipeSearchQuery>.Error :
                 toggleLoadingIndicators()
-                toggleError(message: resource.message!); break
+                toggleError(on: true, message: resource.message!); break
             default:
+                toggleError()
                 toggleLoadingIndicators(on: true); break
         }
     }
@@ -68,15 +72,15 @@ class SearchResultsViewController : UIViewController {
         }
     }
     
-    func toggleError(on: Bool = false, message: String) {
-        layout.recipeCollection.isScrollEnabled = true
+    func toggleError(on: Bool = false, message: String? = nil) {
+        layout.recipeCollection.isScrollEnabled = !on
         
         if viewModel.recipes.count == 0 {
             // display error in it's own component
             layout.errorComponent.message.text = message
             layout.errorComponent.isHidden = !on
-        } else {
-            changeLoadMoreButtonStatus(isLoading: false, errorMessage: message)
+        } else if let message = message {
+            changeLoadMoreButtonStatus(isLoading: !on, errorMessage: message)
         }
     }
     
@@ -115,7 +119,7 @@ class SearchResultsViewController : UIViewController {
         footer.setNeedsDisplay()
     }
     
-    @objc func onClickLoadMoreButton() {
+    @objc func onClickLoadButton() {
         layout.recipeCollection.isScrollEnabled = false
         viewModel.fetchRecipes()
     }
@@ -152,7 +156,7 @@ extension SearchResultsViewController : UICollectionViewDataSource {
         
         // add click handler on first render
         if view.loadButton.actions(forTarget: self, forControlEvent: .touchUpInside) == nil {
-            view.loadButton.addTarget(self, action: #selector(onClickLoadMoreButton), for: .touchUpInside)
+            view.loadButton.addTarget(self, action: #selector(onClickLoadButton), for: .touchUpInside)
         }
         
         footerIndexPath = indexPath
