@@ -55,19 +55,22 @@ class SearchResultsViewController : UIViewController {
                 toggleError(on: true, message: resource.message!); break
             default:
                 toggleError()
-                toggleLoadingIndicators(on: true); break
+                toggleLoadingIndicators(); break
         }
     }
     
-    func toggleLoadingIndicators(on: Bool = false) {
-        if viewModel.recipes.count == 0 {
-            // toggle shimmer views on/off
+    func toggleLoadingIndicators() {
+        if case 1...viewModel.maxResultsSize = viewModel.recipes.count {
+            // toggle shimmer views on/off on first successful query
             layout.placeholders.forEach { placeholder in
-                placeholder.isShimmering = on
+                placeholder.isShimmering = false
             }
             
-            layout.placeholderComponent.isHidden = !on
-        } else {
+            layout.placeholderComponent.isHidden = true
+        }
+        
+        if viewModel.recipes.count != 0 {
+            // hereafter, use button as loading indicator instead of shimmer views
             changeLoadMoreButtonStatus(isLoading: true)
         }
     }
