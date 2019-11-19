@@ -156,7 +156,9 @@ extension SearchResultsViewController : UICollectionViewDataSource {
             as! UIRecipeCollectionFooter
         
         // hide button if all results have been fetched from repository
-        view.isHidden = viewModel.queryResult.data?.totalResults == viewModel.recipes.count
+        if (viewModel.totalResults > 0  && viewModel.totalResults == viewModel.recipes.count) {
+            view.isHidden = true
+        }
         
         // add click handler on first render
         if view.loadButton.actions(forTarget: self, forControlEvent: .touchUpInside) == nil {

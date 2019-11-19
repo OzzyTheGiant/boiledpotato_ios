@@ -7,6 +7,7 @@ class SearchResultsViewModel : NSObject {
     var searchKeywords : String = ""
     var cuisine : String = ""
     var recipes : [Recipe] = []
+    var totalResults : Int = 0
     var queryResult : Resource<RecipeSearchQuery> = Resource.Loading()
     
     // observable property to check if queryResult has changed
@@ -31,6 +32,10 @@ class SearchResultsViewModel : NSObject {
         repository.searchRecipes(queryData: parameters) { resource in
             if resource is Resource.Success {
                 self.recipes.append(contentsOf: resource.data!.recipes!)
+            }
+            
+            if self.totalResults == 0 {
+                self.totalResults = resource.data?.totalResults ?? 0
             }
             
             self.queryResult = resource
