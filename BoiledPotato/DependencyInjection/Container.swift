@@ -30,9 +30,19 @@ extension AppDelegate {
             return SearchResultsViewModel(repository: repository)
         }
         
+        container.register(RecipeViewModel.self) { resolver in
+            let repository = resolver.resolve(RecipeRepository.self)!
+            return RecipeViewModel(repository: repository)
+        }
+        
         container.register(SearchResultsViewController.self) { resolver in
             let viewModel = resolver.resolve(SearchResultsViewModel.self)!
             return SearchResultsViewController(viewModel: viewModel)
+        }
+        
+        container.register(RecipeViewController.self) { resolver in
+            let viewModel = resolver.resolve(RecipeViewModel.self)!
+            return RecipeViewController(viewModel: viewModel)
         }
 
         return container

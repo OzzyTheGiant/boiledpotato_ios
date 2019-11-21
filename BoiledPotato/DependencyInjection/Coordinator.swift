@@ -31,7 +31,8 @@ class Coordinator {
     }
     
     func displayRecipeView(with recipe: Recipe) {
-        let controller = RecipeViewController(recipe: recipe)
+        let controller = container.resolve(RecipeViewController.self)!
+        controller.viewModel.recipe = recipe
         controller.coordinator = self
         navController.pushViewController(controller, animated: true)
     }
