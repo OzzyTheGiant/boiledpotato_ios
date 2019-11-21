@@ -175,8 +175,8 @@ extension SearchResultsViewController : UICollectionViewDataSource {
 }
 
 extension SearchResultsViewController : UICollectionViewDelegate {
-    // TODO: implement click handlers for collection items
+    /** Start new Recipe view controller to display details */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // go to next view controller
+        coordinator?.displayRecipeView(with: viewModel.recipes[indexPath.item])
     }
 }

@@ -30,6 +30,12 @@ class Coordinator {
         navController.pushViewController(controller, animated: true)
     }
     
+    func displayRecipeView(with recipe: Recipe) {
+        let controller = RecipeViewController(recipe: recipe)
+        controller.coordinator = self
+        navController.pushViewController(controller, animated: true)
+    }
+    
     func returnToMainView() {
         navController.popViewController(animated: true)
     }
