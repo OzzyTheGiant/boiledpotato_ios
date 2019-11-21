@@ -5,8 +5,10 @@ import Kingfisher
 class UIRecipeCard : UICollectionViewCell {
     static let id = "RecipeCard"
     
-    weak var recipeImage : UIImageView!
+    weak var recipeImageView : UIImageView!
     weak var recipeLabel : UILabel!
+    public var recipeImage : UIImage!
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -42,7 +44,7 @@ class UIRecipeCard : UICollectionViewCell {
         recipeLabel.numberOfLines = 2
         
         self.recipeLabel = recipeLabel
-        self.recipeImage = recipeImage
+        self.recipeImageView = recipeImage
     }
     
     override func prepareForReuse() {
@@ -50,6 +52,7 @@ class UIRecipeCard : UICollectionViewCell {
         self.recipeLabel.text = nil
     }
     
+    /** Set the text of the recipe card as a formatted string */
     func setText(_ recipeTitle: String) {
         let attributedString = NSMutableAttributedString(string: recipeTitle)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -59,20 +62,20 @@ class UIRecipeCard : UICollectionViewCell {
         recipeLabel.attributedText = attributedString
     }
     
-    func setImage(withFileName fileName: String, onComplete reload: @escaping (Any) -> Void) {
+    func setImage(withFileName fileName: String) {
         // NOTE: this processor may need to be replaced by ResizingImageProcessor if images are too blurry on landscape mode
-        let imageProcessor = DownsamplingImageProcessor(size: recipeImage!.frame.size)
+        let imageProcessor =
+            ResizingImageProcessor(referenceSize: recipeImageView!.frame.size, mode: .aspectFill) |>
+            CroppingImageProcessor(size: recipeImageView!.frame.size)
         
-        recipeImage.kf.indicatorType = .activity
-        recipeImage.kf.setImage(
-            with: URL(string: fileName),
-            options: [
-                .processor(imageProcessor),
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(0.3)),
-                .cacheOriginalImage
-            ],
-            completionHandler: reload
-        )
+        let options: KingfisherOptionsInfo = [
+            .processor(imageProcessor),
+            .scaleFactor(recipeImageView.contentScaleFactor),
+            .transition(.fade(0.3)),
+            .cacheOriginalImage
+        ]
+        
+        recipeImageView.kf.indicatorType = .activity
+        recipeImageView.kf.setImage(with: URL(string: fileName), options: options)
     }
 }

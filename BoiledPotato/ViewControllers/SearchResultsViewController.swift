@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class SearchResultsViewController : UIViewController {
     // dependencies
@@ -143,9 +144,7 @@ extension SearchResultsViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIRecipeCard.id, for: indexPath) as! UIRecipeCard
         cell.setText(viewModel.recipes[indexPath.item].name)
-        cell.setImage(withFileName: imageBaseUrl + viewModel.recipes[indexPath.item].imageFileName) { _ in
-            collectionView.reloadItems(at: [indexPath])
-        }
+        cell.setImage(withFileName: imageBaseUrl + viewModel.recipes[indexPath.item].imageFileName)
         return cell
     }
     
@@ -167,6 +166,11 @@ extension SearchResultsViewController : UICollectionViewDataSource {
         
         footerIndexPath = indexPath
         return view
+    }
+    
+    /** Cancel the unfinished downloading task when the cell disappearing **/
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as! UIRecipeCard).recipeImageView.kf.cancelDownloadTask()
     }
 }
 
