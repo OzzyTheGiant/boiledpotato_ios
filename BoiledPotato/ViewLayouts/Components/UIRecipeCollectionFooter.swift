@@ -47,6 +47,8 @@ class UIRecipeCollectionFooter : UICollectionReusableView {
         loadButton.backgroundColor = .primary_dark
         
         turnOffLoadingIndicator()
+        
+        loadButton.titleEdgeInsets = .zero
     }
     
     func setErrorStatus(message: String) {
@@ -56,6 +58,9 @@ class UIRecipeCollectionFooter : UICollectionReusableView {
         loadButton.setImage(errorIcon, for: .normal)
         
         turnOffLoadingIndicator()
+        
+        loadButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: Dimens.padding_viewport, bottom: 0, right: 0)
+        loadButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: Dimens.padding_viewport * 2, bottom: 0, right: Dimens.padding_viewport)
     }
     
     func turnOffLoadingIndicator() {
