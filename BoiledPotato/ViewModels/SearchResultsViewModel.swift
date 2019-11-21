@@ -38,7 +38,13 @@ class SearchResultsViewModel : NSObject {
                 self.totalResults = resource.data?.totalResults ?? 0
             }
             
-            self.queryResult = resource
+            if resource.data?.totalResults == 0 {
+                // set error message if result set is empty
+                self.queryResult = Resource.Error(NSLocalizedString("NO_DATA_ERROR", comment: ""))
+            } else {
+                self.queryResult = resource
+            }
+            
             self.queryObservable = !self.queryObservable
         }
     }
