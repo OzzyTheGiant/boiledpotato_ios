@@ -17,7 +17,7 @@ class RestApiService {
     private func onCompletion(response: DataResponse<RecipeSearchQuery, AFError>, handler: @escaping CompleteHandler) {
         switch response.result {
             case .success: handler(Resource.Success(response.value!))
-            case .failure: handler(Resource.Error(response.error!.localizedDescription))
+            case .failure: handler(Resource.Error(response.error!.underlyingError?.localizedDescription ?? ""))
         }
     }
     
