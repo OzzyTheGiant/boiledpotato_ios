@@ -6,7 +6,7 @@ class SearchResultsViewController : UIViewController {
     weak var coordinator : Coordinator?
     @objc let viewModel : SearchResultsViewModel
     
-    let imageBaseUrl = "https://spoonacular.com/recipeImages/"
+    let imageBaseUrl : String
     let layout = SearchResultsViewLayout()
     
     var searchQueryObserver : NSKeyValueObservation?
@@ -16,8 +16,9 @@ class SearchResultsViewController : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(viewModel: SearchResultsViewModel) {
+    init(viewModel: SearchResultsViewModel, imageBaseUrl: String) {
         self.viewModel = viewModel
+        self.imageBaseUrl = imageBaseUrl
         super.init(nibName: nil, bundle: nil)
     }
     

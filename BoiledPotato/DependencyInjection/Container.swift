@@ -3,6 +3,7 @@ import Swinject
 extension AppDelegate {
     class func createContainer() -> Container {
         let container = Container()
+        let imageBaseUrl = "https://spoonacular.com/recipeImages/"
         
         container.register(RestApiService.self) { resolver in
             let url, key : String
@@ -37,12 +38,12 @@ extension AppDelegate {
         
         container.register(SearchResultsViewController.self) { resolver in
             let viewModel = resolver.resolve(SearchResultsViewModel.self)!
-            return SearchResultsViewController(viewModel: viewModel)
+            return SearchResultsViewController(viewModel: viewModel, imageBaseUrl: imageBaseUrl)
         }
         
         container.register(RecipeViewController.self) { resolver in
             let viewModel = resolver.resolve(RecipeViewModel.self)!
-            return RecipeViewController(viewModel: viewModel)
+            return RecipeViewController(viewModel: viewModel, imageBaseUrl: imageBaseUrl)
         }
 
         return container
