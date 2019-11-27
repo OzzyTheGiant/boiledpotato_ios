@@ -44,6 +44,12 @@ func text_heading_view_layout(_ label: UILabel) {
     label.textColor = .primary
 }
 
+func text_recipe_label(_ label: UILabel) {
+    label.textColor = .primary
+    label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    label.textAlignment = .center
+}
+
 func description(_ label: UILabel) {
     label.textAlignment = .center
 }
