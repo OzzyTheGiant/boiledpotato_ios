@@ -30,7 +30,7 @@ class UIRecipeCard : UICollectionViewCell {
         recipeImage.backgroundColor = .white
         
         // recipe image constraints
-        recipeImage.height(Dimens.recipe_image_height)
+        recipeImage.height(Dimens.recipe_thumbnail_height)
         recipeImage.Top == self.contentView.Top
         recipeImage.Left == self.contentView.Left
         recipeImage.Right == self.contentView.Right
