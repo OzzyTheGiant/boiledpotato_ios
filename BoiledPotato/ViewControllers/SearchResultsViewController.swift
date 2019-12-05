@@ -131,7 +131,7 @@ class SearchResultsViewController : UIViewController {
     }
     
     @objc func endScene() {
-        coordinator?.returnToMainView()
+        coordinator?.returnToPreviousView()
     }
 }
 

@@ -37,7 +37,7 @@ class Coordinator {
         navController.pushViewController(controller, animated: true)
     }
     
-    func returnToMainView() {
+    func returnToPreviousView() {
         navController.popViewController(animated: true)
     }
 }
