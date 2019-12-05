@@ -18,11 +18,17 @@ class RecipeViewController : UIViewController {
     
     override func viewDidLoad() {
         layout.setContent(recipe: viewModel.recipe, imageBaseUrl: imageBaseUrl)
-        layout.arrangeSubviews(parent: view)
+        layout.arrangeSubviews(for: view)
+        
+        layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layout.setUpScrollViewContentSize(rootViewSize: layout.scrollViewContent.frame.size)
+    }
+    
+    @objc func endScene() {
+        coordinator?.returnToPreviousView()
     }
 }

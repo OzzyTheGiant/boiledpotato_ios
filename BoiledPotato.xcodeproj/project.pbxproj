@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45100EBF238EE53000A30C0D /* UITransparentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */; };
 		454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300623470E8300EBC4DE /* AppDelegate.swift */; };
 		454C300923470E8300EBC4DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300823470E8300EBC4DE /* MainViewController.swift */; };
 		454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454C300D23470E8B00EBC4DE /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITransparentHeaderView.swift; sourceTree = "<group>"; };
 		454C300323470E8300EBC4DE /* Boiled Potato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boiled Potato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C300623470E8300EBC4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		454C300823470E8300EBC4DE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				455EA8EB23623758006D8E5D /* UIHeaderView.swift */,
+				45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */,
 				455EA8ED2362390C006D8E5D /* UISearchView.swift */,
 				455EA8EF236242A4006D8E5D /* UICuisineFilterView.swift */,
 				45E1A859236208B100705FEC /* UICuisineButton.swift */,
@@ -520,6 +523,7 @@
 				455EA8EC23623758006D8E5D /* UIHeaderView.swift in Sources */,
 				456049A6235E3E9D00316E36 /* SearchResultsViewController.swift in Sources */,
 				45E4EB8F2349389A00EE07FF /* MainViewLayout.swift in Sources */,
+				45100EBF238EE53000A30C0D /* UITransparentHeaderView.swift in Sources */,
 				45E1A854235F607F00705FEC /* SearchResultsViewLayout.swift in Sources */,
 				458FD121238742C7008290B1 /* RecipeViewModel.swift in Sources */,
 				45996118236B4EAF00C587BA /* RecipeRepository.swift in Sources */,

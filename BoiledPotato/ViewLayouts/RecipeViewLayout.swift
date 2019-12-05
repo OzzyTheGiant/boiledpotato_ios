@@ -4,16 +4,18 @@ import Stevia
 class RecipeViewLayout {
     let scrollView = UIScrollView()
     let scrollViewContent = UIView()
+    let headerComponent = UITransparentHeaderView(true)
     let recipeImage = UIImageView()
     let recipeTitleBackground = UIView()
     let recipeTitle = UILabel()
     let recipeLabels = UIRecipeLabels(servings: 0, prepTime: 0)
     
-    func arrangeSubviews(parent: UIView) {
+    func arrangeSubviews(for parent: UIView) {
         parent.sv(
             scrollView.sv(
                 scrollViewContent.sv(
                     recipeImage,
+                    headerComponent,
                     recipeTitleBackground,
                     recipeTitle,
                     recipeLabels
@@ -33,6 +35,13 @@ class RecipeViewLayout {
         
         scrollViewContent.Top == scrollView.Top
         scrollViewContent.Width == parent.Width
+        scrollViewContent.Bottom == recipeLabels.Bottom
+        
+        headerComponent.Top == scrollViewContent.Top
+        headerComponent.Left == scrollViewContent.Left
+        headerComponent.Right == scrollViewContent.Right
+        headerComponent.activateSubviewConstraints()
+        headerComponent.constrainBottom()
         
         recipeImage.Top == scrollViewContent.Top
         recipeImage.Left == scrollViewContent.Left
@@ -52,6 +61,8 @@ class RecipeViewLayout {
         recipeLabels.Left == scrollViewContent.Left
         recipeLabels.Right == scrollViewContent.Right
         recipeLabels.activateSubviewConstraints()
+        
+        
     }
     
     func setContent(recipe: Recipe, imageBaseUrl: String) {
@@ -62,7 +73,7 @@ class RecipeViewLayout {
     }
     
     func setUpScrollViewContentSize(rootViewSize: CGSize) {
-        scrollView.contentSize.height = rootViewSize.height
+        scrollView.contentSize.height = scrollViewContent.frame.size.height
         scrollView.contentSize.width = rootViewSize.width
     }
 }
