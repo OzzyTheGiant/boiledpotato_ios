@@ -35,6 +35,8 @@ class SearchResultsViewController : UIViewController {
         
         // add click handler on Retry Button
         layout.errorComponent.button.addTarget(self, action: #selector(onClickLoadButton), for: .touchUpInside)
+        
+        viewModel.fetchRecipes()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,8 +44,6 @@ class SearchResultsViewController : UIViewController {
         searchQueryObserver = observe(\.viewModel.queryObservable) { controller, _ in
             controller.process(resource: controller.viewModel.queryResult)
         }
-        
-        viewModel.fetchRecipes()
     }
     
     /** performs an action based on the status of resouce provded */
