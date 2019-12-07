@@ -2,13 +2,15 @@ import UIKit
 import Stevia
 
 class RecipeViewLayout {
-    let scrollView = UIScrollView()
-    let scrollViewContent = UIView()
-    let headerComponent = UITransparentHeaderView(true)
-    let recipeImage = UIImageView()
+    let scrollView            = UIScrollView()
+    let scrollViewContent     = UIView()
+    let headerComponent       = UITransparentHeaderView(true)
+    let recipeImage           = UIImageView()
     let recipeTitleBackground = UIView()
-    let recipeTitle = UILabel()
-    let recipeLabels = UIRecipeLabels(servings: 0, prepTime: 0)
+    let recipeTitle           = UILabel()
+    let recipeLabels          = UIRecipeLabels(servings: 0, prepTime: 0)
+    let recipeIngredients     = UIRecipeDetailsView(titleKey: "INGREDIENTS").style(component)
+    let recipeInstructions    = UIRecipeDetailsView(titleKey: "INSTRUCTIONS", color: .white).style(component)
     
     func arrangeSubviews(for parent: UIView) {
         parent.sv(
@@ -18,7 +20,9 @@ class RecipeViewLayout {
                     headerComponent,
                     recipeTitleBackground,
                     recipeTitle,
-                    recipeLabels
+                    recipeLabels,
+                    recipeIngredients,
+                    recipeInstructions
                 )
             )
         )
@@ -35,7 +39,7 @@ class RecipeViewLayout {
         
         scrollViewContent.Top == scrollView.Top
         scrollViewContent.Width == parent.Width
-        scrollViewContent.Bottom == recipeLabels.Bottom
+        scrollViewContent.Bottom == recipeInstructions.Bottom
         
         headerComponent.Top == scrollViewContent.Top
         headerComponent.Left == scrollViewContent.Left
@@ -62,7 +66,16 @@ class RecipeViewLayout {
         recipeLabels.Right == scrollViewContent.Right
         recipeLabels.activateSubviewConstraints()
         
+        recipeIngredients.Top == recipeLabels.Bottom
+        recipeIngredients.Left ==  scrollViewContent.Left
+        recipeIngredients.Right == scrollViewContent.Right
         
+        recipeInstructions.Top == recipeIngredients.Bottom
+        recipeInstructions.Left ==  scrollViewContent.Left
+        recipeInstructions.Right == scrollViewContent.Right
+        
+        recipeIngredients.arrangeShimmerViews()
+        recipeInstructions.arrangeShimmerViews()
     }
     
     func setContent(recipe: Recipe, imageBaseUrl: String) {

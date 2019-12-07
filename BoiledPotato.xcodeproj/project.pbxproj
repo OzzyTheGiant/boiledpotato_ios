@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45100EBF238EE53000A30C0D /* UITransparentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */; };
+		4548663A239992F100C05C95 /* UIRecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45486639239992F100C05C95 /* UIRecipeDetailsView.swift */; };
 		454C300723470E8300EBC4DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300623470E8300EBC4DE /* AppDelegate.swift */; };
 		454C300923470E8300EBC4DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300823470E8300EBC4DE /* MainViewController.swift */; };
 		454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454C300D23470E8B00EBC4DE /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITransparentHeaderView.swift; sourceTree = "<group>"; };
+		45486639239992F100C05C95 /* UIRecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecipeDetailsView.swift; sourceTree = "<group>"; };
 		454C300323470E8300EBC4DE /* Boiled Potato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boiled Potato.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C300623470E8300EBC4DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		454C300823470E8300EBC4DE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				45909A8F23687B8E00864491 /* UIRecipeCard.swift */,
 				45EEF37D2375C03700B71B26 /* UIRecipeCollectionFooter.swift */,
 				458FD124238748FB008290B1 /* UIRecipeLabels.swift */,
+				45486639239992F100C05C95 /* UIRecipeDetailsView.swift */,
 				45996114236A842D00C587BA /* UIErrorView.swift */,
 				45A9987D234D1FD5008A2CD2 /* UIExtensions.swift */,
 			);
@@ -535,6 +538,7 @@
 				45817201236C91B600A8D658 /* RestApiService.swift in Sources */,
 				45E1A8572360ECE700705FEC /* Recipe.swift in Sources */,
 				455EA8F92363A131006D8E5D /* Container.swift in Sources */,
+				4548663A239992F100C05C95 /* UIRecipeDetailsView.swift in Sources */,
 				45909A9023687B8E00864491 /* UIRecipeCard.swift in Sources */,
 				455EA8F0236242A4006D8E5D /* UICuisineFilterView.swift in Sources */,
 				455EA8F323636001006D8E5D /* SearchResultsViewModel.swift in Sources */,

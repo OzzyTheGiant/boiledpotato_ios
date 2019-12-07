@@ -57,3 +57,7 @@ func description(_ label: UILabel) {
 func placeholder(_ view: UIView) {
     view.backgroundColor = .placeholder
 }
+
+func placeholder_neutral(_ view: UIView) {
+    view.backgroundColor = .neutral
+}
