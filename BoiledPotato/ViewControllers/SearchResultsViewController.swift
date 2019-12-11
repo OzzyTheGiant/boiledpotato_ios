@@ -44,7 +44,7 @@ class SearchResultsViewController : UIViewController {
         viewModel.fetchRecipes()
     }
     
-    /** performs an action based on the status of resouce provded */
+    /** performs an action based on the status of resource provided */
     func process(resource: Resource<RecipeSearchQuery>) {
         switch(resource) {
             case is Resource<RecipeSearchQuery>.Success :
@@ -76,7 +76,7 @@ class SearchResultsViewController : UIViewController {
     }
     
     func toggleError(on: Bool = false, message: String? = nil) {
-        layout.recipeCollection.isScrollEnabled = !on
+        layout.recipeCollection.isScrollEnabled = on
         
         if viewModel.recipes.count == 0 {
             // display error in it's own component
