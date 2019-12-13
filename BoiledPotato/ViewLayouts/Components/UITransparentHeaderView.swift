@@ -12,6 +12,11 @@ class UITransparentHeaderView : UIHeaderView {
     override func activateSubviewConstraints() {
         super.activateSubviewConstraints()
         
+        let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+        
+        favoriteButton.backgroundColor = backgroundColor
+        backButton.backgroundColor = backgroundColor
+        
         favoriteButton.Top == self.layoutMarginsGuide.Top
         favoriteButton.Right == self.layoutMarginsGuide.Right
     }
