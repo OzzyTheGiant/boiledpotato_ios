@@ -24,6 +24,7 @@ class RecipeViewController : UIViewController {
         layout.arrangeSubviews(for: view)
         
         layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
+        layout.errorComponent.button.addTarget(viewModel, action: #selector(viewModel.fetchRecipeDetails), for: .touchUpInside)
     
         // define callback for recipe details query result data, to update UI
         recipeQueryObserver = observe(\.viewModel.queryObservable) { controller, _ in
@@ -86,7 +87,8 @@ class RecipeViewController : UIViewController {
     }
     
     private func toggleError(on: Bool = false, message: String? = nil) {
-        // TODO
+        layout.errorComponent.isHidden = !on
+        layout.errorComponent.message.text = message
     }
     
     @objc func endScene() {

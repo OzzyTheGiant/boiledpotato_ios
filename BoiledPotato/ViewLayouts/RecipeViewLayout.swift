@@ -11,6 +11,7 @@ class RecipeViewLayout {
     let recipeLabels          = UIRecipeLabels(servings: 0, prepTime: 0)
     let recipeIngredients     = UIRecipeDetailsView(titleKey: "INGREDIENTS").style(component)
     let recipeInstructions    = UIRecipeDetailsView(titleKey: "INSTRUCTIONS", color: .white).style(component)
+    let errorComponent        = UIErrorView(true)
     
     func arrangeSubviews(for parent: UIView) {
         parent.sv(
@@ -22,7 +23,8 @@ class RecipeViewLayout {
                     recipeTitle,
                     recipeLabels,
                     recipeIngredients,
-                    recipeInstructions
+                    recipeInstructions,
+                    errorComponent
                 )
             )
         )
@@ -31,6 +33,7 @@ class RecipeViewLayout {
         parent.backgroundColor = .white
         recipeTitleBackground.backgroundColor = .accent
         recipeTitle.textColor = .white
+        errorComponent.isHidden = true
         
         // constraints
         scrollView.Top == parent.layoutMarginsGuide.Top
@@ -76,6 +79,11 @@ class RecipeViewLayout {
         
         recipeIngredients.arrangeShimmerViews()
         recipeInstructions.arrangeShimmerViews()
+        
+        errorComponent.Top == recipeLabels.Bottom
+        errorComponent.Left == scrollViewContent.Left
+        errorComponent.Right == scrollViewContent.Right
+        errorComponent.Bottom == recipeInstructions.Bottom
     }
     
     func setContent(recipe: Recipe, imageBaseUrl: String) {

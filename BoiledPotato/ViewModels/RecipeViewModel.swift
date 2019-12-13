@@ -12,7 +12,13 @@ class RecipeViewModel : NSObject {
         self.repository = repository
     }
     
-    func fetchRecipeDetails() {
+    @objc func fetchRecipeDetails() {
+        // check if this is an attempt to retry to load after an error
+        if !(queryResult is Resource.Loading) {
+            queryResult = Resource.Loading()
+            queryObservable = !queryObservable
+        }
+        
         repository.getRecipe(byId: recipe.id) { resource in
             if resource is Resource.Success {
                 self.recipe.servings = resource.data!.servings
