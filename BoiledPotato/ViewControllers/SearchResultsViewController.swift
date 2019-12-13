@@ -59,7 +59,7 @@ class SearchResultsViewController : UIViewController {
         }
     }
     
-    func toggleLoadingIndicators() {
+    private func toggleLoadingIndicators() {
         if case 1...viewModel.maxResultsSize = viewModel.recipes.count {
             // toggle shimmer views on/off on first successful query
             layout.placeholders.forEach { placeholder in
@@ -75,7 +75,7 @@ class SearchResultsViewController : UIViewController {
         }
     }
     
-    func toggleError(on: Bool = false, message: String? = nil) {
+    private func toggleError(on: Bool = false, message: String? = nil) {
         layout.recipeCollection.isScrollEnabled = on
         
         if viewModel.recipes.count == 0 {
@@ -87,7 +87,7 @@ class SearchResultsViewController : UIViewController {
         }
     }
     
-    func displaySearchResults() {
+    private func displaySearchResults() {
         let total = viewModel.recipes.count
         let resultCount = viewModel.queryResult.data!.recipes!.count
         let indexPaths = Array(total - resultCount...total - 1).map {
@@ -107,7 +107,7 @@ class SearchResultsViewController : UIViewController {
         changeLoadMoreButtonStatus(isLoading: false)
     }
     
-    func changeLoadMoreButtonStatus(isLoading: Bool, errorMessage: String? = nil) {
+    private func changeLoadMoreButtonStatus(isLoading: Bool, errorMessage: String? = nil) {
         let footer = layout.recipeCollection
             .supplementaryView(forElementKind: UICollectionView.elementKindSectionFooter, at: footerIndexPath!)
             as! UIRecipeCollectionFooter
