@@ -1,7 +1,7 @@
 import Alamofire
 
 class RestApiService {
-    typealias CompleteHandler = (Resource<RecipeSearchQuery>) -> Void
+    typealias CompleteHandler<T> = (Resource<T>) -> Void
     
     let baseURL: String
     let headers: HTTPHeaders
@@ -14,18 +14,26 @@ class RestApiService {
         ]
     }
     
-    private func onCompletion(response: DataResponse<RecipeSearchQuery, AFError>, handler: @escaping CompleteHandler) {
+    private func createResource<T>(response: DataResponse<T, AFError>) -> Resource<T> {
         switch response.result {
-            case .success: handler(Resource.Success(response.value!))
-            case .failure: handler(Resource.Error(response.error!.underlyingError?.localizedDescription ?? ""))
+            case .success: return Resource.Success(response.value!)
+            case .failure: return Resource.Error(response.error!.underlyingError?.localizedDescription ?? "")
         }
     }
     
-    func getRecipes(parameters: Parameters, onCompletion handler: @escaping CompleteHandler) {
+    func getRecipes(parameters: Parameters, onCompletion handler: @escaping CompleteHandler<RecipeSearchQuery>) {
         AF
         .request(baseURL + "/recipes/search", parameters: parameters, headers: headers)
         .validate().responseDecodable(of: RecipeSearchQuery.self) { response in
-            self.onCompletion(response: response, handler: handler)
+            handler(self.createResource(response: response))
+        }
+    }
+    
+    func getRecipe(byId id: CLong, onCompletion handler: @escaping CompleteHandler<Recipe>) {
+        AF
+        .request(baseURL + "/recipes/\(id)/information", headers: headers)
+        .validate().responseDecodable(of: Recipe.self) { response in
+            handler(self.createResource(response: response))
         }
     }
 }
