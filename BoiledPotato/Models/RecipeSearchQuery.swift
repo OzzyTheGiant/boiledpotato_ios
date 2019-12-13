@@ -22,7 +22,7 @@ extension RecipeSearchQuery : Decodable {
         case recipes = "results"
     }
     
-    init(with decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.totalResults = try container.decode(Int.self, forKey: .totalResults)
         self.expires = try container.decode(Int.self, forKey: .expires)
