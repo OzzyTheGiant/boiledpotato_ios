@@ -26,25 +26,29 @@ class SearchResultsViewModel : NSObject {
             "offset": recipes.count
         ]
         
-        queryResult = Resource.Loading()
+        self.queryResult = Resource.Loading()
         self.queryObservable = !self.queryObservable
         
         repository.searchRecipes(queryData: parameters) { resource in
+            
             if resource is Resource.Success {
-                self.recipes.append(contentsOf: resource.data!.recipes!)
+                let data = resource.data!
+                
+                if data.totalResults == 0 {
+                    // set error message if result set is empty
+                    self.queryResult = Resource.Error(NSLocalizedString("NO_DATA_ERROR", comment: ""))
+                    self.queryObservable = !self.queryObservable
+                    return
+                }
+                
+                if self.totalResults == 0 {
+                    self.totalResults = data.totalResults
+                }
+                
+                self.recipes.append(contentsOf: data.recipes!)
             }
             
-            if self.totalResults == 0 {
-                self.totalResults = resource.data?.totalResults ?? 0
-            }
-            
-            if resource.data?.totalResults == 0 {
-                // set error message if result set is empty
-                self.queryResult = Resource.Error(NSLocalizedString("NO_DATA_ERROR", comment: ""))
-            } else {
-                self.queryResult = resource
-            }
-            
+            self.queryResult = resource
             self.queryObservable = !self.queryObservable
         }
     }
