@@ -1,9 +1,17 @@
 import Swinject
+import SQLite
+import Foundation
 
 extension AppDelegate {
     class func createContainer() -> Container {
         let container = Container()
         let imageBaseUrl = "https://spoonacular.com/recipeImages/"
+        
+        container.register(RecipeDAO.self) { resolver in
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let db = try? Connection("\(path)/BoiledPotato.sqlite3")
+            return RecipeDAO(db: db)
+        }.inObjectScope(.container)
         
         container.register(RestApiService.self) { resolver in
             let url, key : String
@@ -23,7 +31,8 @@ extension AppDelegate {
         
         container.register(RecipeRepository.self) { resolver in
             let apiService = resolver.resolve(RestApiService.self)!
-            return RecipeRepository(restApiService: apiService)
+            let recipeDAO = resolver.resolve(RecipeDAO.self)!
+            return RecipeRepository(restApiService: apiService, recipeDAO: recipeDAO)
         }.inObjectScope(.container)
         
         container.register(SearchResultsViewModel.self) { resolver in
