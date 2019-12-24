@@ -30,21 +30,10 @@ class SearchResultsViewModel : NSObject {
         self.queryObservable = !self.queryObservable
         
         repository.searchRecipes(queryData: parameters) { resource in
-            
             if resource is Resource.Success {
                 let data = resource.data!
                 
-                if data.totalResults == 0 {
-                    // set error message if result set is empty
-                    self.queryResult = Resource.Error(NSLocalizedString("NO_DATA_ERROR", comment: ""))
-                    self.queryObservable = !self.queryObservable
-                    return
-                }
-                
-                if self.totalResults == 0 {
-                    self.totalResults = data.totalResults
-                }
-                
+                self.totalResults = self.totalResults == 0 ? data.totalResults : 0
                 self.recipes.append(contentsOf: data.recipes!)
             }
             
