@@ -33,6 +33,7 @@ class RecipeViewLayout {
         parent.backgroundColor = .white
         recipeTitleBackground.backgroundColor = .accent
         recipeTitle.textColor = .white
+        recipeTitle.numberOfLines = 2
         errorComponent.isHidden = true
         
         // constraints
