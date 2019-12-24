@@ -19,7 +19,7 @@ class RecipeViewModel : NSObject {
             queryObservable = !queryObservable
         }
         
-        repository.getRecipe(byId: recipe.id) { resource in
+        repository.getDetails(for: recipe) { resource in
             if resource is Resource.Success {
                 self.recipe.servings = resource.data!.servings
                 self.recipe.ingredients = resource.data!.ingredients
