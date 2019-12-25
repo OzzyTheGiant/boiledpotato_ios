@@ -18,7 +18,10 @@
 "BUTTON_LOAD_MORE"="Load More";
 "TRY_AGAIN"="Tap to try again";
 "NO_DATA_ERROR"="No search results found.";
+"DEFAULT_ERROR"="Something went wrong. Try again!";
 "SERVINGS"="Servings";
 "MINUTES"="Min";
 "INGREDIENTS"="Ingredients";
 "INSTRUCTIONS"="Instructions";
+"MARKED_FAVORITE"="Recipe marked as favorite";
+"UNMARKED_FAVORITE"="Recipe removed from favorites";

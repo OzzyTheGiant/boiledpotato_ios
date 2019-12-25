@@ -11,3 +11,8 @@ struct RecipeSchema {
     let ingredients   = Expression<String>("Ingredients")
     let instructions  = Expression<String>("Instructions")
 }
+
+struct FavoriteSchema {
+    let table         = Table("Favorites")
+    let recipeId      = Expression<Int>("RecipeId")
+}

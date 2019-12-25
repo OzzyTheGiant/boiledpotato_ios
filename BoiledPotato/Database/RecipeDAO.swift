@@ -3,9 +3,10 @@ import PromiseKit
 
 class RecipeDAO {
     private let db : Connection?
-    private let querySchema   = RecipeSearchQuerySchema()
-    private let resultsSchema = RecipeSearchResultsSchema()
-    private let recipeSchema  = RecipeSchema()
+    private let querySchema    = RecipeSearchQuerySchema()
+    private let resultsSchema  = RecipeSearchResultsSchema()
+    private let recipeSchema   = RecipeSchema()
+    private let favoriteSchema = FavoriteSchema()
     
     init(db: Connection?) {
         self.db = db
@@ -38,6 +39,10 @@ class RecipeDAO {
                     table.primaryKey(resultsSchema.queryId, resultsSchema.recipeId) // composite
                     table.foreignKey(resultsSchema.queryId, references: querySchema.table, querySchema.id)
                     table.foreignKey(resultsSchema.recipeId, references: recipeSchema.table, recipeSchema.id)
+                })
+                
+                try db.run(favoriteSchema.table.create(ifNotExists: true) { table in
+                    table.column(favoriteSchema.recipeId)
                 })
             } catch {} // effectively allows app to run without database cache
         }
@@ -102,6 +107,31 @@ class RecipeDAO {
             try db?.run(recipeSchema.table.insert(or: .replace, encodable: recipe))
             print("Recipe updated with details")
             resolver.fulfill(recipe)
+        }
+    }
+    
+    func getFavorite(recipeId: Int) -> Promise<Bool> {
+        return Promise { resolver in
+            let recipe = try db?.pluck(favoriteSchema.table.where(favoriteSchema.recipeId == recipeId))
+            
+            print("Recipe was searched for in favorites list")
+            resolver.fulfill(recipe != nil)
+        }
+    }
+    
+    func delete(favorite recipeId: Int) -> Promise<Bool> {
+        return Promise { resolver in
+            try db?.run(favoriteSchema.table.where(favoriteSchema.recipeId == recipeId).delete())
+            print("Recipe removed from favorites list")
+            resolver.fulfill(false)
+        }
+    }
+    
+    func save(favorite recipeId: Int) -> Promise<Bool> {
+        return Promise { resolver in
+            try db?.run(favoriteSchema.table.insert(Favorite(recipeId: recipeId)))
+            print("Recipe added to favorites list")
+            resolver.fulfill(true)
         }
     }
     

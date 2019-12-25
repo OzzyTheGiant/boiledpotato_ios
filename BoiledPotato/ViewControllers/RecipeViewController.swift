@@ -1,4 +1,5 @@
 import UIKit
+import ToastSwiftFramework
 
 class RecipeViewController : UIViewController {
     weak var coordinator: Coordinator?
@@ -8,6 +9,7 @@ class RecipeViewController : UIViewController {
     let imageBaseUrl : String
     
     var recipeQueryObserver : NSKeyValueObservation?
+    var favoriteObserver    : NSKeyValueObservation?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -23,15 +25,35 @@ class RecipeViewController : UIViewController {
         layout.setContent(recipe: viewModel.recipe, imageBaseUrl: imageBaseUrl)
         layout.arrangeSubviews(for: view)
         
+        // click handlers
         layout.headerComponent.backButton.addTarget(self, action: #selector(endScene), for: .touchUpInside)
+        layout.headerComponent.favoriteButton.addTarget(viewModel, action: #selector(viewModel.toggleRecipeAsFavorite), for: .touchUpInside)
         layout.errorComponent.button.addTarget(viewModel, action: #selector(viewModel.fetchRecipeDetails), for: .touchUpInside)
-    
+        
         // define callback for recipe details query result data, to update UI
         recipeQueryObserver = observe(\.viewModel.queryObservable) { controller, _ in
             controller.process(resource: controller.viewModel.queryResult)
         }
         
-        viewModel.fetchRecipeDetails()
+        // callback for observing changes in favorite status
+        favoriteObserver = observe(\.viewModel.favoriteObservable) { controller, change in
+            let result = controller.viewModel.favoriteResult
+            
+            if result is Resource.Success {
+                controller.toggleFavoriteButton(filledIn: controller.viewModel.recipe.isFavorite)
+            }
+            
+            controller.displayToast(using: result)
+        }
+        
+        viewModel.checkIfRecipeIsFavorite()
+        
+        // skip data fetching if recipe already has details
+        if (viewModel.recipe.ingredients == nil || viewModel.recipe.instructions == nil) {
+            viewModel.fetchRecipeDetails()
+        } else {
+            displayRecipeDetails(viewModel.recipe)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,11 +69,6 @@ class RecipeViewController : UIViewController {
         // CRITICAL - needs to be called to update positions of all views after screen rotation updates have been set
         layout.scrollViewContent.layoutIfNeeded()
         layout.setUpScrollViewContentSize(rootViewSize: view.frame.size)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
     }
     
     func process(resource: Resource<Recipe>) {
@@ -89,6 +106,25 @@ class RecipeViewController : UIViewController {
     private func toggleError(on: Bool = false, message: String? = nil) {
         layout.errorComponent.isHidden = !on
         layout.errorComponent.message.text = message
+    }
+    
+    /** Change favorite button icon after click and successful status update */
+    func toggleFavoriteButton(filledIn: Bool) {
+        let assetName = filledIn ? "ICO_Star" : "ICO_Star_Outline"
+        layout.headerComponent.favoriteButton.setBackgroundImage(UIImage(named: assetName), for: .normal)
+    }
+    
+    /** Display a toast message after pressing Favorites button */
+    func displayToast(using resource: Resource<Bool>) {
+        let textKey : String
+        
+        if self.viewModel.favoriteResult is Resource.Success {
+            textKey = self.viewModel.favoriteResult.data! ? "MARKED_FAVORITE" : "UNMARKED_FAVORITE"
+        } else {
+            textKey = "DEFAULT_ERROR"
+        }
+        
+        self.view.makeToast(NSLocalizedString(textKey, comment: ""), duration: 3.0, position: .bottom)
     }
     
     @objc func endScene() {

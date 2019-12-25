@@ -120,3 +120,23 @@ fileprivate struct InstructionsMetadata : Decodable {
 fileprivate struct StepsMetadata : Decodable {
     let step : String
 }
+
+/** A struct for specifying which recipe is marked as favorite.
+ This is needed to preserve list of favorites upon overwriting recipe data after
+ refreshing stale data */
+struct Favorite : Codable {
+    var recipeId : CLong = 0
+    
+    init(recipeId: CLong) {
+        self.recipeId = recipeId
+    }
+    
+    enum CodingKeys : String, CodingKey {
+        case recipeId = "RecipeID"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(Int(recipeId), forKey: .recipeId)
+    }
+}

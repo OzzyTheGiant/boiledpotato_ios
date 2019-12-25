@@ -77,4 +77,32 @@ class RecipeRepository {
             complete(Resource.Error(error.localizedDescription))
         }
     }
+    
+    func checkIsFavorite(recipeId: CLong, onComplete complete: @escaping Handler<Bool>) {
+        firstly { recipeDAO.getFavorite(recipeId: recipeId) }
+        
+        .done { isFavorite in complete(Resource.Success(isFavorite)) }
+            
+        .catch { error in
+            print(error)
+            complete(Resource.Error(error.localizedDescription))
+        }
+    }
+    
+    func toggleFavorite(on: Bool, recipeId: CLong, onComplete complete: @escaping Handler<Bool>) {
+        let promise : Promise<Bool>
+        
+        if on {
+            promise = recipeDAO.save(favorite: recipeId)
+        } else {
+            promise = recipeDAO.delete(favorite: recipeId)
+        }
+        
+        promise.done { isFavorite in complete(Resource.Success(isFavorite)) }
+        
+        .catch { error in
+            print(error)
+            complete(Resource.Error(error.localizedDescription))
+        }
+    }
 }
