@@ -117,14 +117,16 @@ class RecipeViewController : UIViewController {
     /** Display a toast message after pressing Favorites button */
     func displayToast(using resource: Resource<Bool>) {
         let textKey : String
+        var style = ToastStyle()
         
         if self.viewModel.favoriteResult is Resource.Success {
             textKey = self.viewModel.favoriteResult.data! ? "MARKED_FAVORITE" : "UNMARKED_FAVORITE"
         } else {
             textKey = "DEFAULT_ERROR"
+            style.backgroundColor = .accent
         }
         
-        self.view.makeToast(NSLocalizedString(textKey, comment: ""), duration: 3.0, position: .bottom)
+        self.view.makeToast(NSLocalizedString(textKey, comment: ""), duration: 3.0, position: .bottom, style: style)
     }
     
     @objc func endScene() {
