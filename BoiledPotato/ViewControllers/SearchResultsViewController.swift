@@ -117,7 +117,11 @@ class SearchResultsViewController : UIViewController {
         } else if let error = errorMessage {
             footer.setErrorStatus(message: error)
         } else {
-            footer.setSuccessStatus()
+            if viewModel.recipes.count < viewModel.totalResults {
+                footer.setSuccessStatus()
+            } else {
+                footer.isHidden = true // hide once all results are fetched
+            }
         }
         
         footer.setNeedsDisplay()
