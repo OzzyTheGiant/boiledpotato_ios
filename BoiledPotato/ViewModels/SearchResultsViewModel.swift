@@ -44,7 +44,7 @@ class SearchResultsViewModel : NSObject {
         if resource is Resource.Success {
             let data = resource.data!
             
-            self.totalResults = self.totalResults == 0 ? data.totalResults : 0
+            self.totalResults = self.totalResults == 0 ? data.totalResults : self.totalResults
             self.recipes.append(contentsOf: data.recipes!)
         }
         
