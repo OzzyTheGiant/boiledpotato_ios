@@ -110,6 +110,33 @@ class RecipeDAO {
         }
     }
     
+    func getFavoriteRecipes(resultSize: Int, offset: Int, getCount: Bool) -> Promise<RecipeSearchQuery> {
+        return Promise { resolver in
+            var query = RecipeSearchQuery()
+            query.recipes = []
+            
+            if let db = db {
+                if getCount {
+                    query.totalResults = try db.scalar(favoriteSchema.table.count)
+                }
+                
+                if query.totalResults > 0 {
+                    /* Query: SELECT * FROM Recipes JOIN Favorites ON Recipes.ID == Favorites.RecipeID */
+                    let sqlQuery = recipeSchema.table
+                        .join(favoriteSchema.table, on: recipeSchema.id == favoriteSchema.recipeId)
+                        .limit(resultSize, offset: offset)
+                    
+                    for row in try db.prepare(sqlQuery) {
+                        query.recipes!.append(try Recipe(from: row.decoder(), madeBySQLite: true))
+                    }
+                }
+            }
+            
+            if query.totalResults == 0 { throw DataError.noResultsFound }
+            resolver.fulfill(query)
+        }
+    }
+    
     func getFavorite(recipeId: Int) -> Promise<Bool> {
         return Promise { resolver in
             let recipe = try db?.pluck(favoriteSchema.table.where(favoriteSchema.recipeId == recipeId))

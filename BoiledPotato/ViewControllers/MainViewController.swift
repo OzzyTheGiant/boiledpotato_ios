@@ -9,8 +9,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout.arrangeSubviews(for: view)
+        
+        // add click handlers for header buttons
         layout.searchComponent.backButton.addTarget(self, action: #selector(suspendApp), for: .touchUpInside)
         layout.searchComponent.searchButton.addTarget(self, action: #selector(validateAndSubmitSearchKeywords), for: .touchUpInside)
+        layout.searchComponent.favoritesButton.addTarget(self, action: #selector(displayFavoriteRecipes), for: .touchUpInside)
         
         // add click handlers for cuisine buttons
         for button in layout.filterComponent.cuisineButtons {
@@ -40,10 +43,12 @@ class MainViewController: UIViewController {
         selectedCuisineButton = button
     }
     
-    @objc func suspendApp(_ sender: AnyObject) {
-        coordinator?.stop()
+    /** Called when Favorites button is clicked */
+    @objc func displayFavoriteRecipes() {
+        coordinator?.displaySearchResultsView("favorites", cuisine: "")
     }
     
+    /** Called when Search button is clicked */
     @objc func validateAndSubmitSearchKeywords(_ sender: AnyObject) {
         self.view.endEditing(true)
         
@@ -55,6 +60,10 @@ class MainViewController: UIViewController {
         var style = ToastStyle()
         style.backgroundColor = .accent
         view.makeToast(NSLocalizedString("SEARCH_FIELD_EMPTY", comment: ""), duration: 3.0, position: .bottom, style: style)
+    }
+    
+    @objc func suspendApp(_ sender: AnyObject) {
+        coordinator?.stop()
     }
 }
 

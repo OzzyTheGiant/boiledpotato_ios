@@ -78,9 +78,23 @@ class RecipeRepository {
         }
     }
     
+    func getFavoriteRecipes(queryData: Parameters, getCount: Bool, onComplete complete: @escaping Handler<RecipeSearchQuery>) {
+        let number = queryData["number"] as! Int
+        let offset = queryData["offset"] as! Int
+        
+        firstly { recipeDAO.getFavoriteRecipes(resultSize: number, offset: offset, getCount: getCount) }
+        
+        .done { query in complete(Resource.Success(query)) }
+        
+        .catch { error in
+            print(error)
+            complete(Resource.Error(error.localizedDescription))
+        }
+    }
+    
     func checkIsFavorite(recipeId: CLong, onComplete complete: @escaping Handler<Bool>) {
         firstly { recipeDAO.getFavorite(recipeId: recipeId) }
-        
+
         .done { isFavorite in complete(Resource.Success(isFavorite)) }
             
         .catch { error in

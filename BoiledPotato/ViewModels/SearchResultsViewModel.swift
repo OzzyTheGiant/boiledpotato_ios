@@ -29,16 +29,26 @@ class SearchResultsViewModel : NSObject {
         self.queryResult = Resource.Loading()
         self.queryObservable = !self.queryObservable
         
-        repository.searchRecipes(queryData: parameters) { resource in
-            if resource is Resource.Success {
-                let data = resource.data!
-                
-                self.totalResults = self.totalResults == 0 ? data.totalResults : 0
-                self.recipes.append(contentsOf: data.recipes!)
+        if searchKeywords == "favorites" {
+            repository.getFavoriteRecipes(queryData: parameters, getCount: totalResults == 0) { resource in
+                self.updateRecipeList(using: resource)
             }
-            
-            self.queryResult = resource
-            self.queryObservable = !self.queryObservable
+        } else {
+            repository.searchRecipes(queryData: parameters) { resource in
+                self.updateRecipeList(using: resource)
+            }
         }
+    }
+    
+    private func updateRecipeList(using resource: Resource<RecipeSearchQuery>) {
+        if resource is Resource.Success {
+            let data = resource.data!
+            
+            self.totalResults = self.totalResults == 0 ? data.totalResults : 0
+            self.recipes.append(contentsOf: data.recipes!)
+        }
+        
+        self.queryResult = resource
+        self.queryObservable = !self.queryObservable
     }
 }

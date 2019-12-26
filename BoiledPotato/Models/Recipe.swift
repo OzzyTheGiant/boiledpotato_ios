@@ -132,7 +132,7 @@ struct Favorite : Codable {
     }
     
     enum CodingKeys : String, CodingKey {
-        case recipeId = "RecipeID"
+        case recipeId = "RecipeId"
     }
     
     func encode(to encoder: Encoder) throws {
