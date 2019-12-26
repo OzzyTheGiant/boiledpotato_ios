@@ -130,6 +130,6 @@ class RecipeViewController : UIViewController {
     }
     
     @objc func endScene() {
-        coordinator?.returnToPreviousView()
+        coordinator?.returnToPreviousView(result: viewModel.recipe)
     }
 }

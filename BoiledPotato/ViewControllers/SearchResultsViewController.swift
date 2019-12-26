@@ -11,6 +11,7 @@ class SearchResultsViewController : UIViewController {
     
     var searchQueryObserver : NSKeyValueObservation?
     var footerIndexPath : IndexPath?
+    var currentItemIndexPath : IndexPath?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -127,6 +128,13 @@ class SearchResultsViewController : UIViewController {
         footer.setNeedsDisplay()
     }
     
+    func updateFavoritesList(with recipe: Recipe) {
+        if viewModel.searchKeywords == "favorites" && !recipe.isFavorite {
+            viewModel.recipes.remove(at: currentItemIndexPath!.item)
+            layout.recipeCollection.deleteItems(at: [currentItemIndexPath!])
+        }
+    }
+    
     @objc func onClickLoadButton() {
         layout.recipeCollection.isScrollEnabled = false
         viewModel.fetchRecipes()
@@ -180,6 +188,7 @@ extension SearchResultsViewController : UICollectionViewDataSource {
 extension SearchResultsViewController : UICollectionViewDelegate {
     /** Start new Recipe view controller to display details */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        currentItemIndexPath = indexPath
         coordinator?.displayRecipeView(with: viewModel.recipes[indexPath.item])
     }
 }

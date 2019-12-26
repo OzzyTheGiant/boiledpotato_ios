@@ -40,4 +40,10 @@ class Coordinator {
     func returnToPreviousView() {
         navController.popViewController(animated: true)
     }
+    
+    /** Needed to remove a recipe from collection if a recipe is no longer a favorite */
+    func returnToPreviousView(result: Recipe) {
+        returnToPreviousView()
+        (navController.viewControllers.last as! SearchResultsViewController).updateFavoritesList(with: result)
+    }
 }
