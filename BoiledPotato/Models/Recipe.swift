@@ -83,8 +83,8 @@ extension Recipe : Codable {
             prepMinutes:  try container.decode(Int.self, forKey: .prepMinutes),
             image:        try container.decode(String.self, forKey: .imageFileName),
             servings:     try container.decode(Int.self, forKey: .servings),
-            ingredients:  !ingredients.isEmpty ? ingredients.components(separatedBy: "#!") : nil,
-            instructions: !instructions.isEmpty ? instructions.components(separatedBy: "#!") : nil
+            ingredients:  !ingredients.isEmpty ? ingredients.components(separatedBy: "#") : nil,
+            instructions: !instructions.isEmpty ? instructions.components(separatedBy: "#") : nil
         )
     }
     
@@ -96,13 +96,8 @@ extension Recipe : Codable {
         try container.encode(imageFileName, forKey: .imageFileName)
         try container.encode(servings, forKey: .servings)
         
-        let reducer = { result, item in
-            // combine all strings into one, delimited by a substring
-            return result + item + "#!"
-        }
-        
-        let ingredients = self.ingredients?.reduce("", reducer) ?? ""
-        let instructions = self.instructions?.reduce("", reducer) ?? ""
+        let ingredients = self.ingredients?.joined(separator: "#") ?? ""
+        let instructions = self.instructions?.joined(separator: "#") ?? ""
         
         try container.encode(ingredients, forKey: .ingredients)
         try container.encode(instructions, forKey: .instructions)
