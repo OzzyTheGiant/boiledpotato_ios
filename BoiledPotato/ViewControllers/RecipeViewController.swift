@@ -52,7 +52,9 @@ class RecipeViewController : UIViewController {
         if (viewModel.recipe.ingredients == nil || viewModel.recipe.instructions == nil) {
             viewModel.fetchRecipeDetails()
         } else {
-            displayRecipeDetails(viewModel.recipe)
+            // directly update UI with recipe if details already provided
+            viewModel.queryResult = Resource.Success(viewModel.recipe)
+            viewModel.queryObservable = !viewModel.queryObservable
         }
     }
     

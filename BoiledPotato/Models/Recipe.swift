@@ -83,8 +83,8 @@ extension Recipe : Codable {
             prepMinutes:  try container.decode(Int.self, forKey: .prepMinutes),
             image:        try container.decode(String.self, forKey: .imageFileName),
             servings:     try container.decode(Int.self, forKey: .servings),
-            ingredients:  ingredients == "" ? ingredients.components(separatedBy: "#!") : nil,
-            instructions: instructions == "" ? instructions.components(separatedBy: "#!") : nil
+            ingredients:  !ingredients.isEmpty ? ingredients.components(separatedBy: "#!") : nil,
+            instructions: !instructions.isEmpty ? instructions.components(separatedBy: "#!") : nil
         )
     }
     
