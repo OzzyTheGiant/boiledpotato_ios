@@ -87,7 +87,7 @@ class RecipeDAO {
                 WHERE S.SearchID = :searchId LIMIT :limit OFFSET :offset */
                 let sqlQuery = recipeSchema.table
                     .join(resultsSchema.table, on: recipeSchema.id == resultsSchema.recipeId)
-                    .where(recipeSchema.id == query.id)
+                    .where(resultsSchema.queryId == query.id)
                     .limit(limit, offset: offset)
                 
                 do {
