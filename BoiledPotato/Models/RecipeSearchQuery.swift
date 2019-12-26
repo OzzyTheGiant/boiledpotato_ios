@@ -10,7 +10,7 @@ struct RecipeSearchQuery {
     var recipes : [Recipe]?
     
     var isStale : Bool {
-        get { return Double(expires) > Date().timeIntervalSince1970 * 1000 }
+        get { return Double(expires) < Date().timeIntervalSince1970 * 1000 }
     }
     
     init() {} // initiate with defaults
@@ -52,6 +52,7 @@ extension RecipeSearchQuery : Codable {
     /** for instantiating from SQLite Row object */
     init(from decoder: Decoder, madeBySQLite: Bool) throws {
         let container  = try decoder.container(keyedBy: SQLiteKeys.self)
+        id             = try container.decode(Int.self, forKey: .id)
         searchKeywords = try container.decode(String.self, forKey: .searchKeywords)
         cuisine        = try container.decode(String.self, forKey: .cuisine)
         totalResults   = try container.decode(Int.self, forKey: .totalResults)

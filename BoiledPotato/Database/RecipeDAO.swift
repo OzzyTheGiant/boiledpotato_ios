@@ -61,8 +61,9 @@ class RecipeDAO {
                 }
                 
                 print("Search query was previously cached in database")
-                seal.fulfill(try RecipeSearchQuery(from: row.decoder()))
+                seal.fulfill(try RecipeSearchQuery(from: row.decoder(), madeBySQLite: true))
             } catch {
+                print(error)
                 print("Search query is brand new. Returning new RecipeSearchQuery object")
                 seal.fulfill(RecipeSearchQuery())
             }
