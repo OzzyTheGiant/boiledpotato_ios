@@ -54,7 +54,9 @@ class MainViewController: UIViewController {
         
         if let keywords = layout.searchComponent.searchField.text, !keywords.isEmpty {
             let cuisine = selectedCuisineButton?.currentTitle?.lowercased() ?? ""
-            coordinator?.displaySearchResultsView(keywords, cuisine: cuisine); return
+            let fixedKeywords = keywords.trimmingCharacters(in: .whitespaces).lowercased()
+            
+            coordinator?.displaySearchResultsView(fixedKeywords, cuisine: cuisine); return
         }
         
         var style = ToastStyle()
