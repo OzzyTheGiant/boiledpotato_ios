@@ -16,6 +16,7 @@ class RecipeRepository {
     func searchRecipes(queryData: Parameters, onComplete complete: @escaping Handler<RecipeSearchQuery>) {
         let keywords = queryData["query"] as! String
         let cuisine = queryData["cuisine"] as! String
+        var existingId : CLong = 0
         
         firstly { recipeDAO.getSearchQuery(with: keywords, filteredBy: cuisine) }
         
@@ -32,6 +33,7 @@ class RecipeRepository {
         .then { query -> Promise<RecipeSearchQuery> in
             // Check if data is stale or no recipes found for a search query
             if query.isStale || query.recipes?.isEmpty ?? true {
+                existingId = query.id // save id on query update since new object will have id of 0
                 return self.apiService.getRecipes(parameters: queryData)
             };  return .value(query)
         }
@@ -39,8 +41,9 @@ class RecipeRepository {
         .done { query in
             var query = query // convert let to var
             
-            // save data if this query is not cached in database
+            // save data if this query is not cached or adding new recipes
             if query.id == 0 {
+                query.id = existingId
                 query.searchKeywords = keywords
                 query.cuisine = cuisine
                 _ = self.recipeDAO.saveAll(query: query)

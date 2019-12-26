@@ -166,7 +166,11 @@ class RecipeDAO {
     func saveAll(query: RecipeSearchQuery) -> Promise<Void> {
         return Promise { resolver in
             try db?.transaction {
-                let queryId = CLong( try db!.run(querySchema.table.insert(or: .replace, encodable: query)) )
+                let queryId : CLong
+                let newId = CLong( try db!.run(querySchema.table.insert(or: .ignore, encodable: query)) )
+                
+                // use existing id for saving data or new id if query is new
+                queryId = query.id == 0 ? newId : query.id
                 
                 try query.recipes!.forEach { recipe in
                     let searchResult = RecipeSearchResult(queryId: queryId, recipeId: recipe.id)
