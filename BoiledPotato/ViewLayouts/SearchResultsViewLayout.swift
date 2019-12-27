@@ -19,7 +19,6 @@ class SearchResultsViewLayout {
         collectionLayout.minimumLineSpacing = Dimens.padding_viewport
         collectionLayout.sectionInset = .zero
         collectionLayout.footerReferenceSize = CGSize(width: collectionWidth, height: Dimens.button_load_more_height)
-        collectionLayout.itemSize = CGSize(width: collectionWidth, height: Dimens.placeholder_height)
         
         let recipeCollection = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
         recipeCollection.bounces = false

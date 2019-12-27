@@ -19,7 +19,9 @@ class UIRecipeCollectionFooter : UICollectionReusableView {
         // constraints
         loadButton.Top == self.Top + Dimens.padding_viewport
         loadButton.Bottom == self.Bottom
+        loadButton.Width <= Dimens.max_button_width
         loadButton.Width == self.Width
+        loadButton.CenterX == self.CenterX
         loadButton.Height == self.Height
         
         loadingIndicator.CenterX == loadButton.CenterX

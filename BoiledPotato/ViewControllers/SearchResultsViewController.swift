@@ -45,6 +45,11 @@ class SearchResultsViewController : UIViewController {
         viewModel.fetchRecipes()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        (layout.recipeCollection.collectionViewLayout as! UICollectionViewFlowLayout).invalidateLayout()
+    }
+    
     /** performs an action based on the status of resource provided */
     func process(resource: Resource<RecipeSearchQuery>) {
         switch(resource) {
@@ -190,5 +195,20 @@ extension SearchResultsViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentItemIndexPath = indexPath
         coordinator?.displayRecipeView(with: viewModel.recipes[indexPath.item])
+    }
+}
+
+extension SearchResultsViewController : UICollectionViewDelegateFlowLayout {
+    /** Resize recipe card on screen rotation */
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width : CGFloat
+        
+        if view.frame.size.width > 360 {
+            width = view.frame.size.width / 2 - Dimens.padding_viewport * 1.5
+        } else {
+            width = view.frame.size.width - Dimens.padding_viewport * 2
+        }
+        
+        return CGSize(width: width, height: Dimens.placeholder_height)
     }
 }
