@@ -60,11 +60,8 @@ class RecipeDAO {
                     throw DataError.noResultsFound
                 }
                 
-                print("Search query was previously cached in database")
                 seal.fulfill(try RecipeSearchQuery(from: row.decoder(), madeBySQLite: true))
             } catch {
-                print(error)
-                print("Search query is brand new. Returning new RecipeSearchQuery object")
                 seal.fulfill(RecipeSearchQuery())
             }
         }
@@ -77,7 +74,6 @@ class RecipeDAO {
             
             // return early if query has never been cached or had no recipes in results
             if query.id == 0 || query.totalResults == 0 {
-                print("Query is brand new or cached query has no recipes. Aborting")
                 return seal.fulfill(query)
             }
             
@@ -98,7 +94,6 @@ class RecipeDAO {
                 } catch {}
             }
             
-            print("Cached query had recipes in database. Proceeding")
             seal.fulfill(query)
         }
     }
@@ -106,7 +101,6 @@ class RecipeDAO {
     func save(recipe: Recipe) -> Promise<Recipe> {
         return Promise { resolver in
             try db?.run(recipeSchema.table.insert(or: .replace, encodable: recipe))
-            print("Recipe updated with details")
             resolver.fulfill(recipe)
         }
     }
@@ -141,8 +135,6 @@ class RecipeDAO {
     func getFavorite(recipeId: Int) -> Promise<Bool> {
         return Promise { resolver in
             let recipe = try db?.pluck(favoriteSchema.table.where(favoriteSchema.recipeId == recipeId))
-            
-            print("Recipe was searched for in favorites list")
             resolver.fulfill(recipe != nil)
         }
     }
@@ -150,7 +142,6 @@ class RecipeDAO {
     func delete(favorite recipeId: Int) -> Promise<Bool> {
         return Promise { resolver in
             try db?.run(favoriteSchema.table.where(favoriteSchema.recipeId == recipeId).delete())
-            print("Recipe removed from favorites list")
             resolver.fulfill(false)
         }
     }
@@ -158,7 +149,6 @@ class RecipeDAO {
     func save(favorite recipeId: Int) -> Promise<Bool> {
         return Promise { resolver in
             try db?.run(favoriteSchema.table.insert(Favorite(recipeId: recipeId)))
-            print("Recipe added to favorites list")
             resolver.fulfill(true)
         }
     }
@@ -179,7 +169,6 @@ class RecipeDAO {
                     try db!.run(resultsSchema.table.insert(or: .replace, encodable: searchResult))
                 }
                 
-                print("All data saved")
                 resolver.fulfill(())
             }
         }

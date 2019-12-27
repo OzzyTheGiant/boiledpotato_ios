@@ -55,10 +55,7 @@ class RecipeRepository {
             };  complete(Resource.Success(query))
         }
         
-        .catch { error in
-            print(error)
-            complete(Resource.Error(error.localizedDescription))
-        }
+        .catch { error in complete(Resource.Error(error.localizedDescription)) }
     }
     
     func getDetails(for recipe: Recipe, onComplete complete: @escaping Handler<Recipe>) {
@@ -75,10 +72,7 @@ class RecipeRepository {
         
         .done { recipe in complete(Resource.Success(recipe)) }
         
-        .catch { error in
-            print(error)
-            complete(Resource.Error(error.localizedDescription))
-        }
+        .catch { error in complete(Resource.Error(error.localizedDescription)) }
     }
     
     func getFavoriteRecipes(queryData: Parameters, getCount: Bool, onComplete complete: @escaping Handler<RecipeSearchQuery>) {
@@ -89,10 +83,7 @@ class RecipeRepository {
         
         .done { query in complete(Resource.Success(query)) }
         
-        .catch { error in
-            print(error)
-            complete(Resource.Error(error.localizedDescription))
-        }
+        .catch { error in complete(Resource.Error(error.localizedDescription)) }
     }
     
     func checkIsFavorite(recipeId: CLong, onComplete complete: @escaping Handler<Bool>) {
@@ -100,10 +91,7 @@ class RecipeRepository {
 
         .done { isFavorite in complete(Resource.Success(isFavorite)) }
             
-        .catch { error in
-            print(error)
-            complete(Resource.Error(error.localizedDescription))
-        }
+        .catch { error in complete(Resource.Error(error.localizedDescription)) }
     }
     
     func toggleFavorite(on: Bool, recipeId: CLong, onComplete complete: @escaping Handler<Bool>) {
@@ -117,9 +105,6 @@ class RecipeRepository {
         
         promise.done { isFavorite in complete(Resource.Success(isFavorite)) }
         
-        .catch { error in
-            print(error)
-            complete(Resource.Error(error.localizedDescription))
-        }
+        .catch { error in complete(Resource.Error(error.localizedDescription)) }
     }
 }
