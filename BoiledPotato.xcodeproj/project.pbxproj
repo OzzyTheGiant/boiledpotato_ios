@@ -10,6 +10,11 @@
 		45100EBF238EE53000A30C0D /* UITransparentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */; };
 		4538C74123B5CAFE008EF605 /* RecipeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74023B5CAFE008EF605 /* RecipeUnitTest.swift */; };
 		4538C74323B66909008EF605 /* RecipeSearchQueryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74223B66909008EF605 /* RecipeSearchQueryUnitTest.swift */; };
+		4538C74623B67016008EF605 /* SearchResultsViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */; };
+		4538C74923B684F3008EF605 /* RecipeDAOUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */; };
+		4538C74B23B68A79008EF605 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74A23B68A79008EF605 /* TestData.swift */; };
+		4538C74C23B6999A008EF605 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458B2E9623A96DD200FED9FB /* PromiseKit.framework */; };
+		4538C74D23B6999A008EF605 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45429CBA23AD1CCE00D3CDC0 /* SQLite.framework */; };
 		45429CBB23AD1CCE00D3CDC0 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45429CBA23AD1CCE00D3CDC0 /* SQLite.framework */; };
 		45429CBC23AD1CCE00D3CDC0 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45429CBA23AD1CCE00D3CDC0 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		454685AA23AC65DB00158E4A /* RecipeSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454685A923AC65DB00158E4A /* RecipeSearchResult.swift */; };
@@ -113,6 +118,9 @@
 		45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITransparentHeaderView.swift; sourceTree = "<group>"; };
 		4538C74023B5CAFE008EF605 /* RecipeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUnitTest.swift; sourceTree = "<group>"; };
 		4538C74223B66909008EF605 /* RecipeSearchQueryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchQueryUnitTest.swift; sourceTree = "<group>"; };
+		4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModelUnitTest.swift; sourceTree = "<group>"; };
+		4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDAOUnitTest.swift; sourceTree = "<group>"; };
+		4538C74A23B68A79008EF605 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		45429CBA23AD1CCE00D3CDC0 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		454685A923AC65DB00158E4A /* RecipeSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchResult.swift; sourceTree = "<group>"; };
 		45486639239992F100C05C95 /* UIRecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecipeDetailsView.swift; sourceTree = "<group>"; };
@@ -192,6 +200,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4538C74C23B6999A008EF605 /* PromiseKit.framework in Frameworks */,
+				4538C74D23B6999A008EF605 /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +222,22 @@
 				4538C74223B66909008EF605 /* RecipeSearchQueryUnitTest.swift */,
 			);
 			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		4538C74423B66FD5008EF605 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		4538C74723B684CB008EF605 /* DatabaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */,
+			);
+			path = DatabaseTests;
 			sourceTree = "<group>";
 		};
 		454C2FFA23470E8200EBC4DE = {
@@ -263,8 +289,11 @@
 		454C301A23470E8C00EBC4DE /* BoiledPotatoTests */ = {
 			isa = PBXGroup;
 			children = (
+				4538C74723B684CB008EF605 /* DatabaseTests */,
+				4538C74423B66FD5008EF605 /* ViewModelTests */,
 				4538C73F23B5CAD7008EF605 /* ModelTests */,
 				454C301D23470E8C00EBC4DE /* Info.plist */,
+				4538C74A23B68A79008EF605 /* TestData.swift */,
 			);
 			path = BoiledPotatoTests;
 			sourceTree = "<group>";
@@ -616,6 +645,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4538C74123B5CAFE008EF605 /* RecipeUnitTest.swift in Sources */,
+				4538C74623B67016008EF605 /* SearchResultsViewModelUnitTest.swift in Sources */,
+				4538C74923B684F3008EF605 /* RecipeDAOUnitTest.swift in Sources */,
+				4538C74B23B68A79008EF605 /* TestData.swift in Sources */,
 				4538C74323B66909008EF605 /* RecipeSearchQueryUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,6 +858,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QGX4Q23YH7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BoiledPotatoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -847,6 +883,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QGX4Q23YH7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BoiledPotatoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -2,23 +2,9 @@ import XCTest
 @testable import Boiled_Potato
 
 class RecipeSearchQueryUnitTest : XCTestCase {
-    let sampleRecipe = Recipe(
-        id: 100100,
-        name: "Chicken Soup",
-        prepMinutes: 60,
-        image: "chicken-soup.jpg",
-        servings: 4,
-        ingredients: nil,
-        instructions: nil
-    )
-    
-    let sampleQuery = RecipeSearchQuery(
-        id: 0,
-        keywords: "Chicken",
-        cuisine: "Mexican",
-        totalResults: 25,
-        expires: 999999999999
-    )
+    let sampleRecipe = TestData.sampleRecipe
+    let sampleQuery = TestData.sampleQuery
+    let incompleteData = TestData.incompleteData
     
     let jsonData = Data("""
     {
@@ -34,10 +20,6 @@ class RecipeSearchQueryUnitTest : XCTestCase {
             }
         ],
     }
-    """.utf8)
-    
-    let incompleteData = Data("""
-    { "id": 100100 }
     """.utf8)
     
     private func compareQueries(_ query: RecipeSearchQuery) {

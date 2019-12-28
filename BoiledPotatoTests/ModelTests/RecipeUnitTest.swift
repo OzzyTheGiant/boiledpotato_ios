@@ -2,15 +2,8 @@ import XCTest
 @testable import Boiled_Potato
 
 class RecipeUnitTest : XCTestCase {
-    let sampleRecipe = Recipe(
-        id: 100100,
-        name: "Chicken Soup",
-        prepMinutes: 60,
-        image: "chicken-soup.jpg",
-        servings: 4,
-        ingredients: ["ingredient 1", "ingredient 2"],
-        instructions: ["instruction 1", "instruction 2"]
-    )
+    let sampleRecipe = TestData.sampleRecipe
+    let incompleteData = TestData.incompleteData
     
     let jsonData = Data("""
     {
@@ -36,10 +29,6 @@ class RecipeUnitTest : XCTestCase {
             }
         ]
     }
-    """.utf8)
-    
-    let incompleteData = Data("""
-    { "id": 100100 }
     """.utf8)
     
     private func compareRecipes(_ recipe: Recipe) {
