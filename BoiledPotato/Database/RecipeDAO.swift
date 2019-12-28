@@ -168,9 +168,9 @@ class RecipeDAO {
                     try db!.run(recipeSchema.table.insert(or: .replace, encodable: recipe))
                     try db!.run(resultsSchema.table.insert(or: .replace, encodable: searchResult))
                 }
-                
-                resolver.fulfill(())
             }
+            
+            resolver.fulfill(())
         }
     }
 }
