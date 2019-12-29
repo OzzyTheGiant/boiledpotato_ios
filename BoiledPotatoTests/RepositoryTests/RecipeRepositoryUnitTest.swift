@@ -4,8 +4,8 @@ import Alamofire
 @testable import Boiled_Potato
 
 class RecipeRepositoryUnitTest : XCTestCase {
-    fileprivate let daoMock = RecipeDAOMock()
-    fileprivate let apiMock = RestAPIServiceMock(apiURL: "https://example.com/", apiKey: "1234")
+    internal let daoMock = RecipeDAOMock()
+    internal let apiMock = RestAPIServiceMock(apiURL: "https://example.com/", apiKey: "1234")
     private var repository : RecipeRepository?
     private let timeoutSeconds : Double = 10
     
@@ -123,7 +123,7 @@ class RecipeRepositoryUnitTest : XCTestCase {
     }
 }
 
-fileprivate class RecipeDAOMock : RecipeDAO {
+internal class RecipeDAOMock : RecipeDAO {
     var query = TestData.sampleQuery
     var recipe = TestData.sampleRecipe
     
@@ -168,7 +168,7 @@ fileprivate class RecipeDAOMock : RecipeDAO {
     }
 }
 
-fileprivate class RestAPIServiceMock : RestApiService {
+internal class RestAPIServiceMock : RestApiService {
     private var query = TestData.sampleQuery
     private var recipe = TestData.sampleRecipe
     

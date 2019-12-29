@@ -10,7 +10,7 @@
 		45100EBF238EE53000A30C0D /* UITransparentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */; };
 		4538C74123B5CAFE008EF605 /* RecipeUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74023B5CAFE008EF605 /* RecipeUnitTest.swift */; };
 		4538C74323B66909008EF605 /* RecipeSearchQueryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74223B66909008EF605 /* RecipeSearchQueryUnitTest.swift */; };
-		4538C74623B67016008EF605 /* SearchResultsViewModelUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */; };
+		4538C74623B67016008EF605 /* ViewModelUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74523B67016008EF605 /* ViewModelUnitTests.swift */; };
 		4538C74923B684F3008EF605 /* RecipeDAOUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */; };
 		4538C74B23B68A79008EF605 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4538C74A23B68A79008EF605 /* TestData.swift */; };
 		4538C74C23B6999A008EF605 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458B2E9623A96DD200FED9FB /* PromiseKit.framework */; };
@@ -119,7 +119,7 @@
 		45100EBE238EE53000A30C0D /* UITransparentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITransparentHeaderView.swift; sourceTree = "<group>"; };
 		4538C74023B5CAFE008EF605 /* RecipeUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUnitTest.swift; sourceTree = "<group>"; };
 		4538C74223B66909008EF605 /* RecipeSearchQueryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchQueryUnitTest.swift; sourceTree = "<group>"; };
-		4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModelUnitTest.swift; sourceTree = "<group>"; };
+		4538C74523B67016008EF605 /* ViewModelUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUnitTests.swift; sourceTree = "<group>"; };
 		4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDAOUnitTest.swift; sourceTree = "<group>"; };
 		4538C74A23B68A79008EF605 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		4538C74F23B6F4BD008EF605 /* RecipeRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryUnitTest.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		4538C74423B66FD5008EF605 /* ViewModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				4538C74523B67016008EF605 /* SearchResultsViewModelUnitTest.swift */,
+				4538C74523B67016008EF605 /* ViewModelUnitTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -657,7 +657,7 @@
 			files = (
 				4538C74123B5CAFE008EF605 /* RecipeUnitTest.swift in Sources */,
 				4538C75023B6F4BD008EF605 /* RecipeRepositoryUnitTest.swift in Sources */,
-				4538C74623B67016008EF605 /* SearchResultsViewModelUnitTest.swift in Sources */,
+				4538C74623B67016008EF605 /* ViewModelUnitTests.swift in Sources */,
 				4538C74923B684F3008EF605 /* RecipeDAOUnitTest.swift in Sources */,
 				4538C74B23B68A79008EF605 /* TestData.swift in Sources */,
 				4538C74323B66909008EF605 /* RecipeSearchQueryUnitTest.swift in Sources */,
