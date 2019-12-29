@@ -24,7 +24,6 @@
 		454C300923470E8300EBC4DE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C300823470E8300EBC4DE /* MainViewController.swift */; };
 		454C300E23470E8B00EBC4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454C300D23470E8B00EBC4DE /* Assets.xcassets */; };
 		454C301123470E8B00EBC4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454C300F23470E8B00EBC4DE /* LaunchScreen.storyboard */; };
-		454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */; };
 		455EA8E923623664006D8E5D /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8E723623664006D8E5D /* Styles.swift */; };
 		455EA8EA23623664006D8E5D /* Dimens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8E823623664006D8E5D /* Dimens.swift */; };
 		455EA8EC23623758006D8E5D /* UIHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455EA8EB23623758006D8E5D /* UIHeaderView.swift */; };
@@ -135,8 +134,6 @@
 		454C301723470E8B00EBC4DE /* BoiledPotatoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454C301D23470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454C302223470E8C00EBC4DE /* BoiledPotatoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoiledPotatoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoiledPotatoUITests.swift; sourceTree = "<group>"; };
-		454C302823470E8C00EBC4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455EA8E723623664006D8E5D /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		455EA8E823623664006D8E5D /* Dimens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimens.swift; sourceTree = "<group>"; };
 		455EA8EB23623758006D8E5D /* UIHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHeaderView.swift; sourceTree = "<group>"; };
@@ -258,7 +255,6 @@
 				45E4EB8A2349241700EE07FF /* .gitignore */,
 				454C300523470E8300EBC4DE /* BoiledPotato */,
 				454C301A23470E8C00EBC4DE /* BoiledPotatoTests */,
-				454C302523470E8C00EBC4DE /* BoiledPotatoUITests */,
 				454C300423470E8300EBC4DE /* Products */,
 				456CB9B123565A5000BD487F /* Frameworks */,
 			);
@@ -307,15 +303,6 @@
 				4538C74A23B68A79008EF605 /* TestData.swift */,
 			);
 			path = BoiledPotatoTests;
-			sourceTree = "<group>";
-		};
-		454C302523470E8C00EBC4DE /* BoiledPotatoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				454C302623470E8C00EBC4DE /* BoiledPotatoUITests.swift */,
-				454C302823470E8C00EBC4DE /* Info.plist */,
-			);
-			path = BoiledPotatoUITests;
 			sourceTree = "<group>";
 		};
 		455EA8E4236234CD006D8E5D /* Values */ = {
@@ -668,7 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454C302723470E8C00EBC4DE /* BoiledPotatoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
