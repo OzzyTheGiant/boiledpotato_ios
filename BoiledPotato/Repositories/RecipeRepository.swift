@@ -50,7 +50,7 @@ class RecipeRepository {
             }
             
             // check if no results came back and create Resource accordingly
-            if query.totalResults == 0 || query.recipes!.isEmpty {
+            if query.totalResults == 0 || query.recipes?.isEmpty ?? true {
                 throw(DataError.noResultsFound)
             };  complete(Resource.Success(query))
         }
