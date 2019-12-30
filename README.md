@@ -1,4 +1,4 @@
-![](https://https://github.com/OzzyTheGiant/boiledpotato_ios/blob/master/BoiledPotato/Assets.xcassets/AppIcon.appiconset/120.png?raw=true) 
+![](https://github.com/OzzyTheGiant/boiledpotato_ios/blob/master/BoiledPotato/Assets.xcassets/AppIcon.appiconset/120.png?raw=true) 
 # Boiled Potato
 A sample recipe search app using Spoonacular REST API and built natively for iOS
 
