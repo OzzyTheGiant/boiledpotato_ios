@@ -122,6 +122,7 @@
 		4538C74823B684F3008EF605 /* RecipeDAOUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDAOUnitTest.swift; sourceTree = "<group>"; };
 		4538C74A23B68A79008EF605 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		4538C74F23B6F4BD008EF605 /* RecipeRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepositoryUnitTest.swift; sourceTree = "<group>"; };
+		4538C75423B956D3008EF605 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		45429CBA23AD1CCE00D3CDC0 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		454685A923AC65DB00158E4A /* RecipeSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchResult.swift; sourceTree = "<group>"; };
 		45486639239992F100C05C95 /* UIRecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecipeDetailsView.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		454C2FFA23470E8200EBC4DE = {
 			isa = PBXGroup;
 			children = (
+				4538C75423B956D3008EF605 /* README.md */,
 				456CB9AD23564C0600BD487F /* Cartfile */,
 				456CB9AF23564F7800BD487F /* Cartfile.resolved */,
 				45E4EB8A2349241700EE07FF /* .gitignore */,
